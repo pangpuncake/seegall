@@ -1,9 +1,8 @@
 import React from 'react';
-
+import Logo from '../../components/Logo/Logo';
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
+import NavigationItems from '../Layout/Navigation/NavigationItems/NavigationItems';
 import './Toolbar.css';
-
-import Logo from './bluelogo1.png';
 
 const toolbar = props => (
     <header className="toolbar">
@@ -13,17 +12,10 @@ const toolbar = props => (
                 <DrawerToggleButton click={props.drawerClickHandler} />
             </div>
             <div>
-                <img src={Logo} alt="website logo" />
+                <Logo height = '80%' />
             </div>
             <div className = "toolbar_logo"><a href = "/">Seegall</a></div>
-            <div className="toolbar_navigation-items">
-                <ul>
-                    <li><a href = "/">Algorithms</a></li>
-                    <li><a href = "/">Input Your Code</a></li>
-                    <li><a href = "/">Forums</a></li>
-                    <li><a href = "/">Log In</a></li>
-                </ul>
-            </div>
+            <NavigationItems />
         </nav>
     </header>
 );
