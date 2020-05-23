@@ -1,4 +1,4 @@
-.toggle-button {
+.DrawerToggleButton {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -8,16 +8,22 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding-left: 10px;
     box-sizing: border-box;
 }
 
-.toggle-button:focus {
+.DrawerToggleButton:focus {
     outline: none;
 }
 
-.toggle-button_line {
+.Line {
     width: 28px;
     height: 2px;
     background: white;
+}
+
+@media (min-width: 949px) {
+    .DrawerToggleButton {
+        display: none;
+    }
 }
