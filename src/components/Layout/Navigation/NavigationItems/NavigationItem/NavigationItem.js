@@ -5,6 +5,7 @@ const NavigationItem = ( props ) => {
     return (
         <li className = {classes.NavigationItem}>
             <a 
+                onClick = {props.click}
                 href = {props.link}
                 className = {props.active ? classes.active : null}>
                     {props.children}
