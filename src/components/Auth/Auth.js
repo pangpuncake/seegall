@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PopUp from '../Layout/PopUp/PopUp'
 import Input from '../../components/Layout/UI/Input/Input'
 import { connect } from 'react-redux'
 import * as actions from '../../store/actions/index'
 import Button from '../Layout/UI/Button/Button'
+import Spinner from '../Layout/UI/Spinner/Spinner'
 
 class Auth extends Component {
 
@@ -13,7 +14,7 @@ class Auth extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'email',
-                    placeholder: 'Mail Address'
+                    placeholder: 'Email Address'
                 },
                 value: '',
                 validation: {
@@ -97,6 +98,10 @@ class Auth extends Component {
         this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup);
     }
 
+    resetPasswordHandler = () => {
+        this.props.onReset(this.state.controls.email.value);
+    }
+
     switchAuthModeHandler = () => {
         this.setState(prevState => {
             return {isSignup: !prevState.isSignup};
@@ -124,28 +129,100 @@ class Auth extends Component {
                 touched={formElement.config.touched}
                 changed={( event ) => this.inputChangedHandler( event, formElement.id )} />
         ) );
-        console.log("Auth: " + this.state.isSignup)
+        
+        let errorMessage = null;
+        if (this.props.error) {
+            switch(this.props.error.message) {
+                case('INVALID_PASSWORD'): {
+                    errorMessage = (
+                        <Fragment>
+                            <p>Wrong Password!</p>
+                            <p 
+                                style = {{cursor: 'pointer'}} 
+                                onClick = {this.resetPasswordHandler}>
+                                Forgot Password? Click Me!
+                            </p>
+                        </Fragment>
+                    )
+                    break;
+                }
+                
+                case('EMAIL_NOT_FOUND'): {
+                    errorMessage = (
+                        <p>Email does not exist!</p>
+                    )
+                    break;
+                }
+                case('USER_DISABLED'): {
+                    errorMessage = (
+                        <p>You have been disabled!</p>
+                    )
+                    break;
+                }
+                case('EMAIL_EXISTS'): {
+                    errorMessage = (
+                        <p>Email exists! Try another!</p>
+                    )
+                    break;
+                }
+                case('TOO_MANY_ATTEMPTS_TRY_LATER'): {
+                    errorMessage = (
+                        <p>Too many attempts! Please try again later.</p>
+                    )
+                    break;
+                }
+                case('SENT_RESET'): {
+                    errorMessage = (
+                        <Fragment>
+                            <p>Please check your email to reset password.</p>
+                            <p 
+                                style = {{cursor: 'pointer'}} 
+                                onClick = {this.resetPasswordHandler}>
+                                Didn't receive it? Click here to resend.
+                            </p>
+                        </Fragment>
+                    )
+                    break;
+                }
+                default: {
+                    errorMessage = this.props.error.message
+                }
+            }
+        }
         return (
             <div style={{textAlign: 'center'}}>
                 <PopUp show = {this.props.show} click = {this.props.click}>
-                    <h3>{this.state.isSignup ? 'Sign Up' : 'Sign In'}</h3>
-                    <form onSubmit={this.submitHandler}>
-                        {form} 
-                        <Button btnType = 'Success'>Submit</Button>
-                    </form>
+                    <h1>{this.state.isSignup ? 'Sign Up' : 'Sign In'}</h1>
+                    {this.props.loading 
+                        ? <Spinner /> 
+                        : <form onSubmit={this.submitHandler}>
+                            {form} 
+                            {errorMessage}
+                            <Button btnType = 'Success'>Submit</Button>
+                        </form>}
                     <Button 
                         clicked={this.switchAuthModeHandler}
-                        btnType="Danger">SWITCH TO {this.state.isSignup ? 'SIGN IN' : 'SIGN UP'}</Button>
+                        btnType="Danger">SWITCH TO {this.state.isSignup ? 'SIGN IN' : 'SIGN UP'}
+                    </Button>
+
                 </PopUp>
             </div>
         )
     }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
     return {
-        onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup))
+        loading: state.auth.loading,
+        error: state.auth.error
     };
 };
 
-export default connect(null, mapDispatchToProps)(Auth);
+const mapDispatchToProps = dispatch => {
+    return {
+        onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup)),
+        onReset: (email) => dispatch(actions.resetPassword(email))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

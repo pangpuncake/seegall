@@ -4,6 +4,7 @@ import Toolbar from '../Layout/Toolbar/Toolbar';
 import SideDrawer from '../Layout/SideDrawer/SideDrawer';
 import AuthContext from '../context/AuthContext/AuthContext';
 import Auth from '../Auth/Auth';
+import { connect } from 'react-redux';
 
 class Layout extends Component {
 
@@ -35,9 +36,8 @@ class Layout extends Component {
         })
     }
 
-
     render() {
-        const authComponent = this.state.showLogin 
+        const authComponent = this.state.showLogin && !this.props.loggedIn
             ? <Auth show = {this.state.showLogin} click = {this.hideLoginHandler} /> 
             : null;
         return (
@@ -61,4 +61,10 @@ class Layout extends Component {
     }
 }
 
-export default Layout;
+const mapStateToProps = state => {
+    return {
+        loggedIn: state.auth.loggedIn
+    }
+}
+
+export default connect(mapStateToProps)(Layout);

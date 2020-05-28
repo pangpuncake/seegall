@@ -1,3 +1,5 @@
 export {
-    auth
+    auth,
+    logout,
+    resetPassword
 } from './auth';

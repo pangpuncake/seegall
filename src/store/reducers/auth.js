@@ -5,7 +5,8 @@ const initialState = {
     token: null,
     userId: null,
     error: null,
-    loading: false
+    loading: false,
+    loggedIn: false
 };
 
 const authStart = ( state, action ) => {
@@ -17,7 +18,8 @@ const authSuccess = (state, action) => {
         token: action.idToken,
         userId: action.userId,
         error: null,
-        loading: false
+        loading: false,
+        loggedIn: true
      } );
 };
 
@@ -26,6 +28,22 @@ const authFail = (state, action) => {
         error: action.error,
         loading: false
     });
+};
+
+const authLogout = (state, action) => {
+    return updateObject( state, {
+        token: null,
+        userId: null,
+        loggedIn: false
+    });
+};
+
+const authReset = (state, action) => {
+    return updateObject( state, {
+        error: {
+            message: 'SENT_RESET'
+        }
+    })
 }
 
 const reducer = ( state = initialState, action ) => {
@@ -33,6 +51,8 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.AUTH_START: return authStart(state, action);
         case actionTypes.AUTH_SUCCESS: return authSuccess(state, action);
         case actionTypes.AUTH_FAIL: return authFail(state, action);
+        case actionTypes.AUTH_LOGOUT: return authLogout(state, action);
+        case actionTypes.AUTH_RESET: return authReset(state, action);
         default:
             return state;
     }
