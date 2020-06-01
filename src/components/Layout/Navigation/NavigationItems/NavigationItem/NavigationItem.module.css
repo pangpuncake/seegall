@@ -18,6 +18,7 @@
 .NavigationItem a:hover,
 .NavigationItem a:active {
     color: #2C5881;
+    cursor: pointer;
 }
 
 

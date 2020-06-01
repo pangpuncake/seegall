@@ -8,7 +8,7 @@ const toolbar = props => (
     <header className={classes.Toolbar}>
             <DrawerToggleButton click={props.drawerClickHandler} />
             <div>
-                <Logo height = '80%' />
+                <Logo height = '50%' />
             </div>
             <div className = {classes.Logo}>
                 <a href = "/">Seegall</a>
