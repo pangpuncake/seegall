@@ -7,10 +7,12 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (authData) => {
+export const authSuccess = (email, idToken, userId) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
-        authData: authData
+        email: email,
+        idToken: idToken,
+        userId: userId
     };
 };
 
@@ -47,10 +49,10 @@ export const resetPassword = (email) => {
             requestType: 'PASSWORD_RESET',
             email: email
         };
-        let url = 'https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyAVvsjZWhHgoi8-Dff1l_AoRmEln0l1eQQ';
+        let url = 'https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyC12wxDo517wIl_66rKVCglgn-EVT2VPFE';
         axios.post(url, authData)
             .then(response => {
-                console.log(response);
+                console.log(response.data);
                 dispatch(authResetPassword());
             })
             .catch(err => {
@@ -68,14 +70,14 @@ export const auth = (email, password, isSignup) => {
             password: password,
             returnSecureToken: true
         };
-        let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAVvsjZWhHgoi8-Dff1l_AoRmEln0l1eQQ';
+        let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC12wxDo517wIl_66rKVCglgn-EVT2VPFE';
         if (!isSignup) {
-            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAVvsjZWhHgoi8-Dff1l_AoRmEln0l1eQQ';
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC12wxDo517wIl_66rKVCglgn-EVT2VPFE';
         }
         axios.post(url, authData)
             .then(response => {
-                console.log(response);
-                dispatch(authSuccess(response.data.idToken, response.data.localId));
+                console.log(response.data);
+                dispatch(authSuccess(response.data.email, response.data.idToken, response.data.localId));
                 dispatch(checkAuthTimeout(response.data.expiresIn));
             })
             .catch(err => {

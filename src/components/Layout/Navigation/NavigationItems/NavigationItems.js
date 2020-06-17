@@ -13,12 +13,15 @@ const NavigationItems = ( props ) => {
         props.onLogout();
     };
 
+    console.log('auth props below')
+    console.log(props)
+
     let authLogin = 
         !props.loggedIn
-            ? <NavigationItem click = {authContext.showLoginHandler}>
+            ? <NavigationItem link = "/" click = {authContext.showLoginHandler}>
                 Log In
             </NavigationItem>
-            : <NavigationItem click = {logoutHandler}>
+            : <NavigationItem link = "/" click = {logoutHandler}>
                 Log Out
             </NavigationItem>
 
@@ -26,7 +29,7 @@ const NavigationItems = ( props ) => {
         <ul className = {classes.NavigationItems}>
             <NavigationItem link = "/" active>Algorithms</NavigationItem>
             <NavigationItem link = "/">Input Your Code</NavigationItem>
-            <NavigationItem link = "/">Forum</NavigationItem>
+            <NavigationItem link = "/forum">Forum</NavigationItem>
             {authLogin}
         </ul>
     )

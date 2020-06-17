@@ -7,9 +7,7 @@ import classes from './Toolbar.module.css';
 const toolbar = props => (
     <header className={classes.Toolbar}>
             <DrawerToggleButton click={props.drawerClickHandler} />
-            <div>
-                <Logo height = '80%' />
-            </div>
+            <Logo height = '80%' />
             <div className = {classes.Logo}>
                 <a href = "/">Seegall</a>
             </div>
