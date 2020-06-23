@@ -28,6 +28,10 @@ li {
   background-color: #757575;
 }
 
+.box {
+  background-color: #000000;
+}
+
 .button {
   color: white;
   text-decoration: none;

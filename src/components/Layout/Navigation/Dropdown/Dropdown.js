@@ -42,10 +42,10 @@ class Dropdown extends React.Component {
 
         {this.state.displayMenu ? (
           <ul onMouseLeave={this.hideDropdownMenu} className='drop-component'>
-            <li>
+            <li className='box'>
               <a href='#Dijkstra'>Dijkstra</a>
             </li>
-            <li>
+            <li className='box'>
               <a href='#Sorting'>Sorting</a>
             </li>
           </ul>
