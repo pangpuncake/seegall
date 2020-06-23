@@ -1,46 +1,43 @@
-
-
 .Toolbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #000000;
-    height: 60px;
-    display: flex;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #000000;
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
 
 img {
-    height: 55px;
+  height: 55px;
 }
 
 .Toolbar nav {
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    padding: 0 1rem;
-    margin-top: 0.7rem;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  padding: 0 1rem;
+  margin-top: 0.7rem;
 }
 
 .Logo {
-    align-items: center;
-    display: flex;
+  align-items: center;
+  display: flex;
 }
 
 .Logo a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.8rem;
-    font-family: 'Poppins', sans-serif;
-    align-items: center;
-    margin-left: -3px;
-    margin-right: 100px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-family: "Poppins", sans-serif;
+  align-items: center;
+  margin-left: -3px;
+  margin-right: 100px;
 }
 
 @media (max-width: 950px) {
-    .DesktopOnly {
-        display: none;
-    }
+  .DesktopOnly {
+    display: none;
+  }
 }
-
