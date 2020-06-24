@@ -4,7 +4,8 @@ import { updateObject } from '../utility';
 const initialState = {
     loading: false,
     error: null,
-    uploaded: false
+    uploaded: false,
+    code: `abcd`
 }
 
 const newPostStart = ( state, action ) => {
@@ -31,11 +32,18 @@ const newPostFail = ( state, action ) => {
     })
 }
 
+const updateCodeStart = ( state, action ) => {
+    return updateObject( state, {
+        code: action.code
+    })
+}
+
 const reducer = ( state = initialState, action ) => {
     switch( action.type ) {
         case actionTypes.NEW_POST_START: return newPostStart(state, action);
         case actionTypes.NEW_POST_SUCCESS: return newPostSuccess(state, action);
         case actionTypes.NEW_POST_FAIL: return newPostFail(state, action);
+        case actionTypes.UPDATE_CODE: return updateCodeStart(state, action);
         default:
             return state;
     }

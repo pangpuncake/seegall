@@ -5,6 +5,7 @@ import * as actions from '../../../store/actions/index'
 import Button from '../../Layout/UI/Button/Button'
 import Spinner from '../../Layout/UI/Spinner/Spinner'
 import PopUp from '../../Layout/PopUp/PopUp'
+import CodeMirrorEditor from '../../CodeMirrorEditor/CodeMirrorEditor'
 
 class NewPost extends Component {
 
@@ -54,7 +55,7 @@ class NewPost extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        this.props.onPost(this.props.email, this.state.controls.question.value)
+        this.props.onPost(this.props.email, this.props.code, this.state.controls.question.value)
     }
 
     showPostToggleHandler = () => {
@@ -90,6 +91,7 @@ class NewPost extends Component {
         (<Fragment>
             <h2>Create your post!</h2>
             <form onSubmit = {this.submitHandler}>
+                <CodeMirrorEditor/>
                 {form}
                 <Button btnType = 'Success'>Submit</Button>
             </form>
@@ -132,13 +134,14 @@ const mapStateToProps = state => {
         loading: state.post.loading,
         error: state.post.error,
         email: state.auth.email,
-        uploaded: state.post.uploaded
+        uploaded: state.post.uploaded,
+        code: state.post.code
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onPost: (email, value) => dispatch(actions.submitPost(email, value))
+        onPost: (email, code, value) => dispatch(actions.submitPost(email, code, value))
     }
 }
 

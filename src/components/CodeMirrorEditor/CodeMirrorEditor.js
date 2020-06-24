@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
-import classes from '../../../node_modules/codemirror/lib/codemirror.css'
+import { connect } from 'react-redux'
+import * as actions from '../../store/actions/index'
+import '../../../node_modules/codemirror/lib/codemirror.css'
+import {Controlled as CodeMirror} from 'react-codemirror2'
+require('codemirror/mode/xml/xml');
+require('codemirror/mode/javascript/javascript');
 
 class CodeMirrorEditor extends Component {
 
-   
-    state = {
-        code: ``,
-        array: [1,2,3,4],
-        runCode: null
-    }
-
     updateCodeHandler = ( code ) => {
-        this.setState({
-            code: code
-        })
+        console.log('called')
+        this.props.onUpdate(code);
     }
 
     // runCodeHandler = () => {
@@ -26,27 +23,38 @@ class CodeMirrorEditor extends Component {
     // }
 
     render() {
-        let Codemirror = require('react-codemirror');
-        require('codemirror/mode/javascript/javascript');
-        require('codemirror/mode/python/python');
-        require('codemirror/mode/xml/xml');
-        require('codemirror/mode/markdown/markdown');
         const options = {
             lineNumbers: true,
             mode: 'javascript',
+            theme: 'midnight',
+            spellcheck: true,
+            autocorrect: true
         }
         return (
-            <div>
-                <Codemirror 
-                    className = {classes}
-                    value = {this.state.code} 
-                    onChange = {this.updateCodeHandler}
+            <div style = {{textAlign: 'leftx'}}>
+                <CodeMirror 
+                    autoFocus
+                    value = {this.props.code}
+                    className = {'CodeMirror'}
+                    onChange = {(editor, data, value) => console.log('changed') }
                     options = {options} />
-                <button onClick = {this.runCodeHandler}>Run Visualisation!</button>
-        <p></p>
+                {/* <button onClick = {this.runCodeHandler}>Submit Post!</button> */}
             </div>
         )
     }
 }
 
-export default CodeMirrorEditor
+const mapStateToProps = state => {
+    return {
+        code: state.post.code
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onUpdate: (code) => dispatch(actions.updateCode(code))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CodeMirrorEditor);
+

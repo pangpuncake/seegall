@@ -27,7 +27,7 @@ const NavigationItems = ( props ) => {
 
     return (
         <ul className = {classes.NavigationItems}>
-            <NavigationItem link = "/" active>Algorithms</NavigationItem>
+            <NavigationItem link = "/algo" active>Algorithms</NavigationItem>
             <NavigationItem link = "/">Input Your Code</NavigationItem>
             <NavigationItem link = "/forum">Forum</NavigationItem>
             {authLogin}
