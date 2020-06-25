@@ -13,7 +13,7 @@
   }
 }
 
-body {
+/* body {
   min-height: 500px;
   background-image: url(./content.jpg);
   background-position: center;
@@ -21,7 +21,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646;
-}
+} */
 
 .App-header {
   background-color: #282c34;

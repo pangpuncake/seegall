@@ -1,20 +1,27 @@
 .MainText {
-    color: white;
-    font-size: 2rem;
-    font-family: 'Poppins', sans-serif;
-    height: 800px;
-    display: flex;
-    align-items: center;
-    font-weight: 300;
-    justify-content: center;
+  color: white;
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  justify-content: center;
+  min-height: 500px;
+  background-image: url(../../content.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #000000;
 }
 
 .MainBody {
-    margin: 0;
-    text-align: center;
+  margin: 0;
+  text-align: center;
 }
 
 .Header {
-    font-size: 5rem;
-    margin-bottom: -1.5rem;
+  font-size: 5rem;
+  margin-bottom: -1.5rem;
 }

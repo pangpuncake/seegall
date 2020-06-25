@@ -1,6 +1,6 @@
 .Forum {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    padding-top: 5%;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: white;
 }

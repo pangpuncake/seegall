@@ -12,11 +12,11 @@ class App extends Component {
     return (
       <Layout>
         <Switch>
-            {/* <Route path="/code" component={Checkout} /> */}
-            <Route path="/algo" component={Sorting} />
-            <Route path="/forum" component={Forum} />
-            <Route path="/" exact component={MainText} />
-          </Switch>
+          {/* <Route path="/code" component={Checkout} /> */}
+          <Route path="/algo" component={Sorting} />
+          <Route path="/forum" component={Forum} />
+          <Route path="/" exact component={MainText} />
+        </Switch>
       </Layout>
     );
   }

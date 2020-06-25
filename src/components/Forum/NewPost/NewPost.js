@@ -8,26 +8,25 @@ import PopUp from '../../Layout/PopUp/PopUp'
 import CodeMirrorEditor from '../../CodeMirrorEditor/CodeMirrorEditor'
 
 class NewPost extends Component {
-
     state = {
         controls: {
             question: {
-                elementType: 'input',
+                elementType: "input",
                 elementConfig: {
-                    type: 'question',
-                    placeholder: 'Write your question here!'
+                    type: "question",
+                    placeholder: "Write your question here!",
                 },
                 validation: {
                     isQuestion: true,
-                    required: true
+                    required: true,
                 },
-                value: '',
+                value: "",
                 touched: false,
                 valid: false,
             },
         },
         showNewPost: false,
-    }
+    };
 
     inputChangedHandler = (event, controlName) => {
         const updatedControls = {
@@ -35,12 +34,15 @@ class NewPost extends Component {
             [controlName]: {
                 ...this.state.controls[controlName],
                 value: event.target.value,
-                valid: this.checkValidity(event.target.value, this.state.controls[controlName].validation),
-                touched: true
-            }
+                valid: this.checkValidity(
+                    event.target.value,
+                    this.state.controls[controlName].validation
+                ),
+                touched: true,
+            },
         };
-        this.setState({controls: updatedControls});
-    }
+        this.setState({ controls: updatedControls });
+    };
 
     checkValidity = (value, rules) => {
         let isValid = true;
@@ -48,34 +50,34 @@ class NewPost extends Component {
             return isValid;
         }
         if (rules.required) {
-            isValid = value.trim() !== '' && isValid
+            isValid = value.trim() !== "" && isValid;
         }
-        return isValid
-    }
+        return isValid;
+    };
 
     submitHandler = (event) => {
         event.preventDefault();
-        this.props.onPost(this.props.email, this.props.code, this.state.controls.question.value)
-    }
+        this.props.onPost(this.props.email, this.state.controls.question.value);
+    };
 
     showPostToggleHandler = () => {
         this.setState((prevState) => {
             return {
-                showNewPost: !prevState.showNewPost
-            }
-        })
-    }
+                showNewPost: !prevState.showNewPost,
+            };
+        });
+    };
 
     render() {
         const formElementsArray = [];
-        for ( let key in this.state.controls ) {
-            formElementsArray.push( {
+        for (let key in this.state.controls) {
+            formElementsArray.push({
                 id: key,
                 config: this.state.controls[key]
-            } );
+            });
         }
 
-        let form = formElementsArray.map( formElement => (
+        let form = formElementsArray.map(formElement => (
             <Input
                 key={formElement.id}
                 elementType={formElement.config.elementType}
@@ -84,18 +86,18 @@ class NewPost extends Component {
                 invalid={!formElement.config.valid}
                 shouldValidate={formElement.config.validation}
                 touched={formElement.config.touched}
-                changed={( event ) => this.inputChangedHandler( event, formElement.id )} />
-        ) );
+                changed={(event) => this.inputChangedHandler(event, formElement.id)} />
+        ));
 
-        let newPost = 
-        (<Fragment>
-            <h2>Create your post!</h2>
-            <form onSubmit = {this.submitHandler}>
-                <CodeMirrorEditor/>
-                {form}
-                <Button btnType = 'Success'>Submit</Button>
-            </form>
-        </Fragment>)
+        let newPost =
+            (<Fragment>
+                <h2>Create your post!</h2>
+                <form onSubmit={this.submitHandler}>
+                    <CodeMirrorEditor />
+                    {form}
+                    <Button btnType='Success'>Submit</Button>
+                </form>
+            </Fragment>)
 
         if (this.props.loading) {
             newPost = <Spinner />
@@ -106,11 +108,11 @@ class NewPost extends Component {
         }
 
         if (this.props.error) {
-            newPost = 
-            <Fragment>
-            <h3>Oops! Something went wrong!</h3>
-            <p>Error: {this.props.error.message}</p>
-            </Fragment>
+            newPost =
+                <Fragment>
+                    <h3>Oops! Something went wrong!</h3>
+                    <p>Error: {this.props.error.message}</p>
+                </Fragment>
         }
 
         if (this.props.email === '') {
@@ -118,12 +120,12 @@ class NewPost extends Component {
         }
 
         return (
-            <div style = {{textAlign: 'center'}}>
-                <PopUp show = {this.state.showNewPost} click = {this.showPostToggleHandler} >
+            <div style={{ textAlign: 'center' }}>
+                <PopUp show={this.state.showNewPost} click={this.showPostToggleHandler} >
                     {newPost}
                 </PopUp>
                 <h2>Have a burning question that needs answering?</h2>
-                <Button btnType = 'Success' clicked = {this.showPostToggleHandler}>Create post!</Button>
+                <Button btnType='Success' clicked={this.showPostToggleHandler}>Create post!</Button>
             </div>
         )
     }
