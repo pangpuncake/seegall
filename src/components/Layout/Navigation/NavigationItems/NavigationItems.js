@@ -29,7 +29,7 @@ const NavigationItems = (props) => {
   return (
     <ul className={classes.NavigationItems}>
       <Dropdown />
-      <NavigationItem link='/'>Input Your Code</NavigationItem>
+      <NavigationItem link='/'>Create</NavigationItem>
       <NavigationItem link='/forum'>Forum</NavigationItem>
       {authLogin}
     </ul>
