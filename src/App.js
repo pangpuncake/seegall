@@ -5,7 +5,8 @@ import { Route, Switch } from 'react-router-dom';
 import CodeMirrorEditor from './components/CodeMirrorEditor/CodeMirrorEditor';
 import Forum from '../src/components/Forum/Forum'
 import MainText from './components/MainText/MainText';
-import Sorting from './components/Sorting/Sorting'
+import Sorting from './components/AlgorithmsPage/Sorting/Sorting'
+import AlgorithmsPage from './components/AlgorithmsPage/AlgorithmsPage'
 
 class App extends Component {
   render() {
@@ -13,7 +14,7 @@ class App extends Component {
       <Layout>
         <Switch>
           {/* <Route path="/code" component={Checkout} /> */}
-          <Route path="/algo" component={Sorting} />
+          <Route path="/algo" component={AlgorithmsPage} />
           <Route path="/forum" component={Forum} />
           <Route path="/" exact component={MainText} />
         </Switch>

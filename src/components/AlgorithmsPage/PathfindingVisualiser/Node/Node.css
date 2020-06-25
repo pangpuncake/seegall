@@ -6,12 +6,12 @@
 }
 
 .node-finish {
-  background-image: url(../../target.png);
+  background-image: url(../target.png);
   background-size: 25px;
 }
 
 .node-start {
-  background-image: url(../../eye.png);
+  background-image: url(../eye.png);
   background-size: 25px;
 }
 
@@ -89,12 +89,12 @@
   }
 
   .node-finish {
-    background-image: url(../../target.png);
+    background-image: url(../target.png);
     background-size: 7.5px;
   }
 
   .node-start {
-    background-image: url(../../eye.png);
+    background-image: url(../eye.png);
     background-size: 7.5px;
   }
 }

@@ -43,10 +43,10 @@ class Dropdown extends React.Component {
         {this.state.displayMenu ? (
           <ul className='drop-component'>
             <li className='box'>
-              <NavLink to='/algo/Dijkstra' exact>Dijkstra</NavLink>
+              <NavLink to='/algo/pathfinding' exact>Dijkstra</NavLink>
             </li>
             <li className='box'>
-              <NavLink to='/algo/Sorting' exact>Sorting</NavLink>
+              <NavLink to='/algo/sorting' exact>Sorting</NavLink>
             </li>
           </ul>
         ) : null}

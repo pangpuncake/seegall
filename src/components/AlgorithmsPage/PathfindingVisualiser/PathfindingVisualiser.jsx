@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 import Node from "./Node/Node";
 
-import { dijkstra } from "../Algorithms/Dijkstra";
+import { dijkstra } from "./Algorithms/Dijkstra";
 import styles from "./PathfindingVisualiser.module.css";
-import { shortestPath } from "../Algorithms/Dijkstra";
-import { refreshPage } from "../Refresh";
+import { shortestPath } from "./Algorithms/Dijkstra";
+import { refreshPage } from "./Refresh";
 
 const START_NODE_ROW = 10;
 const START_NODE_COL = 5;
