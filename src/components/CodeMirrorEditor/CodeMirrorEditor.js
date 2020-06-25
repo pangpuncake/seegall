@@ -2,25 +2,27 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../store/actions/index'
 import '../../../node_modules/codemirror/lib/codemirror.css'
-import {Controlled as CodeMirror} from 'react-codemirror2'
+import { Controlled as CodeMirror } from 'react-codemirror2'
 require('codemirror/mode/xml/xml');
 require('codemirror/mode/javascript/javascript');
 
 class CodeMirrorEditor extends Component {
 
-    updateCodeHandler = ( code ) => {
-        console.log('called')
-        this.props.onUpdate(code);
+    state = {
+        code: ``
     }
 
-    // runCodeHandler = () => {
-    //     const runCode = eval(this.state.code);
-    //     console.log( runCode);
-    //     this.setState({
-    //         runCode: runCode
-    //     })
-    //     console.log(runCode(this.state.array));
-    // }
+    updateCodeHandler = () => {
+        console.log('redux store changing ', this.state.code)
+        this.props.onUpdate(this.state.code);
+    }
+
+    updateState = (code) => {
+        // console.log(code)
+        this.setState({
+            code: code
+        })
+    }
 
     render() {
         const options = {
@@ -31,14 +33,14 @@ class CodeMirrorEditor extends Component {
             autocorrect: true
         }
         return (
-            <div style = {{textAlign: 'leftx'}}>
-                <CodeMirror 
+            <div style={{ textAlign: 'left' }}>
+                <CodeMirror
                     autoFocus
-                    value = {this.props.code}
-                    className = {'CodeMirror'}
-                    onChange = {(editor, data, value) => console.log('changed') }
-                    options = {options} />
-                {/* <button onClick = {this.runCodeHandler}>Submit Post!</button> */}
+                    value={this.state.code}
+                    className={'CodeMirror'}
+                    onBeforeChange={(editor, data, value) => this.updateState(value)}
+                    onBlur={(editor, data, value) => this.updateCodeHandler()}
+                    options={options} />
             </div>
         )
     }

@@ -30,7 +30,7 @@ const NavigationItems = (props) => {
     <ul className={classes.NavigationItems}>
       <Dropdown />
       <NavigationItem link='/'>Create</NavigationItem>
-      <NavigationItem link='/forum'>Forum</NavigationItem>
+      <NavigationItem link='/forum/home'>Forum</NavigationItem>
       {authLogin}
     </ul>
   );

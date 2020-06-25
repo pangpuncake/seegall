@@ -15,8 +15,8 @@ export class Forum extends Component {
             style={{ backgroundColor: "white", width: "100%", height: "100%" }}
           >
             <Switch>
-              <Route path='/forum' exact component={NewPost} />
               <Route path='/forum/home' component={Home} />
+              <Route path='/forum/newpost' component={NewPost} />
             </Switch>
           </div>
         </div>

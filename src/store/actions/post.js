@@ -28,7 +28,7 @@ export const updateCodeStart = (code) => {
 }
 
 export const submitPost = (email, code, value) => {
-    console.log(email);
+    console.log('Code here! ', code);
     return dispatch => {
         dispatch(newPostStart());
         const postData = {
@@ -49,6 +49,7 @@ export const submitPost = (email, code, value) => {
 }
 
 export const updateCode = (code) => {
+    console.log(code)
     return dispatch => {
         dispatch(updateCodeStart(code));
     }

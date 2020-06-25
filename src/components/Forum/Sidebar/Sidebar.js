@@ -8,7 +8,6 @@ const Sidebar = () => {
       style={{
         backgroundColor: "slategrey",
         width: "20%",
-        height: "100vh",
       }}
     >
       <ul style={{ overflow: "hidden", position: "fixed", padding: "150px 0" }}>
@@ -17,7 +16,7 @@ const Sidebar = () => {
           <MDBIcon icon='home' />
           Home
         </NavigationItem>
-        <NavigationItem link='/forum'>Create Post</NavigationItem>
+        <NavigationItem link='/forum/newpost'>Create Post</NavigationItem>
         <NavigationItem link='/forum/tags'>Tags</NavigationItem>
         <NavigationItem link='/forum/popular'>Popular</NavigationItem>
         <NavigationItem link='/forum/latest'>Latest</NavigationItem>

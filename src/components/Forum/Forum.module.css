@@ -1,5 +1,6 @@
 .Forum {
   display: flex;
+  flex-direction: unset;
   height: 100%;
   width: 100%;
   background-color: white;

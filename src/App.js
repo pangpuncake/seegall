@@ -13,10 +13,10 @@ class App extends Component {
     return (
       <Layout>
         <Switch>
-          {/* <Route path="/code" component={Checkout} /> */}
+          <Route path="/" exact component={MainText} />
           <Route path="/algo" component={AlgorithmsPage} />
           <Route path="/forum" component={Forum} />
-          <Route path="/" exact component={MainText} />
+
         </Switch>
       </Layout>
     );

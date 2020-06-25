@@ -57,15 +57,7 @@ class NewPost extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        this.props.onPost(this.props.email, this.state.controls.question.value);
-    };
-
-    showPostToggleHandler = () => {
-        this.setState((prevState) => {
-            return {
-                showNewPost: !prevState.showNewPost,
-            };
-        });
+        this.props.onPost(this.props.email, this.props.code, this.state.controls.question.value);
     };
 
     render() {
@@ -89,6 +81,7 @@ class NewPost extends Component {
                 changed={(event) => this.inputChangedHandler(event, formElement.id)} />
         ));
 
+
         let newPost =
             (<Fragment>
                 <h2>Create your post!</h2>
@@ -98,6 +91,8 @@ class NewPost extends Component {
                     <Button btnType='Success'>Submit</Button>
                 </form>
             </Fragment>)
+
+
 
         if (this.props.loading) {
             newPost = <Spinner />
@@ -115,17 +110,13 @@ class NewPost extends Component {
                 </Fragment>
         }
 
-        if (this.props.email === '') {
-            newPost = <h3>Please log in or sign up first!</h3>
-        }
+        // if (this.props.email === '') {
+        //     newPost = <h3>Please log in or sign up first!</h3>
+        // }
 
         return (
             <div style={{ textAlign: 'center' }}>
-                <PopUp show={this.state.showNewPost} click={this.showPostToggleHandler} >
-                    {newPost}
-                </PopUp>
-                <h2>Have a burning question that needs answering?</h2>
-                <Button btnType='Success' clicked={this.showPostToggleHandler}>Create post!</Button>
+                {newPost}
             </div>
         )
     }
