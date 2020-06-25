@@ -13,6 +13,13 @@ import postReducer from './store/reducers/post';
 import postsReducer from './store/reducers/posts';
 import fullPostReducer from './store/reducers/fullpost';
 
+// The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
+// const functions = require('firebase-functions');
+
+// The Firebase Admin SDK to access Cloud Firestore.
+// const admin = require('firebase-admin');
+// admin.initializeApp();
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({

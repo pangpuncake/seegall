@@ -1,0 +1,7 @@
+.title {
+  font-weight: 200;
+  position: relative;
+  top: -100px;
+  left: 300px;
+  display: flex;
+}

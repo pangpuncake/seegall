@@ -1,6 +1,8 @@
 import React from "react";
 import "./Dropdown.css";
-import NavigationItem from "../NavigationItems/NavigationItem/NavigationItem";
+import classes from "../NavigationItems/NavigationItem/NavigationItem.module.css";
+import { NavLink } from 'react-router-dom'
+
 
 class Dropdown extends React.Component {
   constructor() {
@@ -29,28 +31,26 @@ class Dropdown extends React.Component {
 
   render() {
     return (
-      <div
-        className='dropdown'
-        style={{ width: "200px" }}
+      <li
+        className={classes.NavigationItem}
         onMouseEnter={this.showDropdownMenu}
+        onMouseLeave={this.hideDropdownMenu}
       >
-        <div className='button'>
-          <NavigationItem link='/' active>
-            Algorithms
-          </NavigationItem>
-        </div>
-
+        <NavLink
+          to='/algo'
+          exact
+          activeClassName={classes.active}>Algorithms</NavLink>
         {this.state.displayMenu ? (
-          <ul onMouseLeave={this.hideDropdownMenu} className='drop-component'>
+          <ul className='drop-component'>
             <li className='box'>
-              <a href='#Dijkstra'>Dijkstra</a>
+              <NavLink to='/algo/Dijkstra' exact>Dijkstra</NavLink>
             </li>
             <li className='box'>
-              <a href='#Sorting'>Sorting</a>
+              <NavLink to='/algo/Sorting' exact>Sorting</NavLink>
             </li>
           </ul>
         ) : null}
-      </div>
+      </li>
     );
   }
 }

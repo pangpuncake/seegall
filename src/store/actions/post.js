@@ -20,11 +20,19 @@ export const newPostFail = (error) => {
     }
 }
 
-export const submitPost = (email, value) => {
+export const updateCodeStart = (code) => {
+    return {
+        type: actionTypes.UPDATE_CODE,
+        code: code
+    }
+}
+
+export const submitPost = (email, code, value) => {
     console.log(email);
     return dispatch => {
         dispatch(newPostStart());
         const postData = {
+            code: code,
             question: value,
             email: email,
         }
@@ -37,6 +45,12 @@ export const submitPost = (email, value) => {
                 console.log(error)
                 dispatch(newPostFail(error.response.data.error));
             })
+    }
+}
+
+export const updateCode = (code) => {
+    return dispatch => {
+        dispatch(updateCodeStart(code));
     }
 }
 

@@ -5,7 +5,8 @@ export {
 } from './auth';
 
 export {
-    submitPost
+    submitPost,
+    updateCode
 } from './post';
 
 export {

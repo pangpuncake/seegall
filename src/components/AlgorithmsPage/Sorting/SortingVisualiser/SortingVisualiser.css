@@ -1,0 +1,38 @@
+.container {
+  position: fixed;
+  left: 100px;
+  top: 100px;
+}
+
+.bar {
+  width: 15px;
+  display: inline-block;
+  margin: 0 1px;
+}
+
+.slider {
+  position: fixed;
+  left: 100px;
+}
+
+.button {
+  position: absolute;
+  bottom: 75px;
+  left: 250px;
+  align-self: flex-end;
+}
+
+/*mobile ver
+*/
+@media (max-width: 768px) {
+  .container {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+  }
+  .bar {
+    width: 5px;
+    display: inline-block;
+    margin: 0 1px;
+  }
+}
