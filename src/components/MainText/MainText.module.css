@@ -7,13 +7,13 @@
   align-items: center;
   font-weight: 300;
   justify-content: center;
-  min-height: 500px;
-  background-image: url(../../content.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-color: #000000;
+  background-image: url(../../assets/images/content.jpg);
+  margin-top: -50px;
 }
 
 .MainBody {

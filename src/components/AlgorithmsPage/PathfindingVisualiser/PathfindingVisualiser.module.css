@@ -1,5 +1,10 @@
 .grid {
   margin: 100 0 0;
+  margin-left: 300px;
+}
+
+.buttons {
+  margin-left: 800px;
 }
 
 @media (max-width: 500px) {

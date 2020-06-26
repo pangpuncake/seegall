@@ -1,17 +1,17 @@
 .AlgoItem {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    border: #ccc 1px dotted;
-    margin: 0.7rem 0;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+  border: #ccc 1px dotted;
+  margin: 0.7rem 0;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .AlgoItem img {
-    width: auto;
-    max-width: 150px;
-    height: auto;
-    max-height: 100px;
+  width: auto;
+  max-width: 150px;
+  height: auto;
+  max-height: 100px;
 }

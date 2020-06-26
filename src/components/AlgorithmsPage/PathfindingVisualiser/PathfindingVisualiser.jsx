@@ -86,9 +86,11 @@ export default class PathfindingVisualiser extends Component {
 
     return (
       <>
-        <button onClick={() => this.visualiseDijkstra()}>Visualise!</button>
-        <button onClick={() => this.clearWalls()}>Clear Walls</button>
-        <button onClick={refreshPage}>Reset</button>
+        <div className={styles.buttons}>
+          <button onClick={() => this.visualiseDijkstra()}>Visualise!</button>
+          <button onClick={() => this.clearWalls()}>Clear Walls</button>
+          <button onClick={refreshPage}>Reset</button>
+        </div>
         <div className={styles.grid}>
           {grid.map((row, rowIdx) => {
             return (

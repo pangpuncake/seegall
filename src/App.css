@@ -13,9 +13,9 @@
   }
 }
 
-/* body {
+/* .body {
   min-height: 500px;
-  background-image: url(./content.jpg);
+  background-image: url(./assets/images/content.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;

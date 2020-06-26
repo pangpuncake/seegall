@@ -21,7 +21,7 @@ const muiTheme = createMuiTheme({
       root: {
         width: 300,
         marginLeft: 200,
-        marginTop: 30,
+        marginTop: 40,
       },
     },
   },

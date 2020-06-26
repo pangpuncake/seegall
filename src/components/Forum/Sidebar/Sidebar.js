@@ -7,7 +7,10 @@ const Sidebar = () => {
     <div
       style={{
         backgroundColor: "slategrey",
-        width: "20%",
+        width: "15%",
+        position: "fixed",
+        height: "100vh",
+        marginTop: "-15px",
       }}
     >
       <ul style={{ overflow: "hidden", position: "fixed", padding: "150px 0" }}>
