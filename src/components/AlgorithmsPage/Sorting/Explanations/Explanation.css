@@ -1,11 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap");
+
 .image {
   width: 50%;
+  height: 50%;
+  margin-left: 200px;
 }
 
 .caption {
   font-size: small;
+  width: 450px;
+  position: relative;
+  left: 25%;
 }
 
-.bigger-image {
-  width: 40%;
+.code {
+  font-family: "Source Code Pro", sans-serif;
+  width: 500px;
+  background-color: #75757548;
+  padding: 75px 120px;
+  margin-left: 10%;
+  text-align: left;
 }

@@ -21,7 +21,7 @@ const muiTheme = createMuiTheme({
       root: {
         width: 300,
         marginLeft: 200,
-        marginTop: 50,
+        marginTop: 30,
       },
     },
   },
@@ -34,16 +34,16 @@ function valuetext(value) {
 export default function DiscreteSlider(props) {
   return (
     <ThemeProvider theme={muiTheme}>
-      <Typography className="container" id="discrete-slider" gutterBottom>
-        <h4 className="title">Sorting Speed</h4>
+      <Typography className='container' id='discrete-slider' gutterBottom>
+        <h4 className='title'>Sorting Speed</h4>
       </Typography>
       <Slider
         value={props.value}
         onChange={props.onChange}
         defaultValue={10}
         getAriaValueText={valuetext}
-        aria-labelledby="discrete-slider"
-        valueLabelDisplay="auto"
+        aria-labelledby='discrete-slider'
+        valueLabelDisplay='auto'
         step={10}
         marks
         min={10}

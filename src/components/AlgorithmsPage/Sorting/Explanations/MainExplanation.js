@@ -3,7 +3,7 @@ import React from "react";
 const MainExplanation = (props) => {
   return (
     <div>
-      <h1>Welcome to our Sorting Visualiser</h1>
+      <h2>Welcome to our Sorting Visualiser</h2>
       <p>
         We hope to help you understand some sorting algorithms better through
         animations. We currently host Marge, Bubble and Quick sort but will be

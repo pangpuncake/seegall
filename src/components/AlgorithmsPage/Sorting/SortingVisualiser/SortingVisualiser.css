@@ -1,7 +1,7 @@
 .container {
   position: fixed;
   left: 100px;
-  top: 100px;
+  top: 150px;
 }
 
 .bar {
@@ -16,7 +16,7 @@
 }
 
 .button {
-  position: absolute;
+  position: fixed;
   bottom: 75px;
   left: 250px;
   align-self: flex-end;
@@ -24,7 +24,7 @@
 
 /*mobile ver
 */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .container {
     position: fixed;
     left: 10px;
@@ -33,6 +33,6 @@
   .bar {
     width: 5px;
     display: inline-block;
-    margin: 0 1px;
+    margin-bottom: 100px;
   }
 }
