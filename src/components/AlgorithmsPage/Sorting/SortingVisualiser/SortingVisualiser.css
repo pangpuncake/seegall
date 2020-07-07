@@ -1,24 +1,26 @@
 .container {
   position: fixed;
-  left: 100px;
-  top: 150px;
+  left: 80px;
+  top: 135px;
 }
 
 .bar {
-  width: 15px;
+  width: 10px;
   display: inline-block;
   margin: 0 1px;
+  max-height: 450px;
 }
 
 .slider {
   position: fixed;
-  left: 100px;
+  left: -40px;
+  top: 58px;
 }
 
 .button {
   position: fixed;
-  bottom: 55px;
-  left: 250px;
+  left: 120px;
+  bottom: 0px;
   align-self: flex-end;
 }
 
@@ -34,5 +36,32 @@
     width: 5px;
     display: inline-block;
     margin: 0 1px;
+  }
+}
+
+@media (min-width: 1900px) {
+  .container {
+    position: fixed;
+    left: 100px;
+    top: 150px;
+  }
+
+  .bar {
+    width: 15px;
+    display: inline-block;
+    margin: 0 1px;
+    max-height: 800px;
+  }
+
+  .slider {
+    position: fixed;
+    left: 100px;
+  }
+
+  .button {
+    position: fixed;
+    bottom: 55px;
+    left: 250px;
+    align-self: flex-end;
   }
 }

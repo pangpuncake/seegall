@@ -15,9 +15,33 @@
 
 .code {
   font-family: "Source Code Pro", sans-serif;
-  width: 500px;
+  width: 520px;
   background-color: #75757548;
-  padding: 75px 120px;
-  margin-left: 10%;
+  padding: 35px 30px;
+  margin-left: 2%;
   text-align: left;
+}
+
+@media (min-width: 1900px) {
+  .image {
+    width: 50%;
+    height: 50%;
+    margin-left: 200px;
+  }
+
+  .caption {
+    font-size: small;
+    width: 450px;
+    position: relative;
+    left: 25%;
+  }
+
+  .code {
+    font-family: "Source Code Pro", sans-serif;
+    width: 500px;
+    background-color: #75757548;
+    padding: 75px 120px;
+    margin-left: 10%;
+    text-align: left;
+  }
 }
