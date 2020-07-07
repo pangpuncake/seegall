@@ -8,7 +8,6 @@ const Sidebar = () => {
       style={{
         backgroundColor: "slategrey",
         width: "15%",
-        position: "fixed",
         height: "100vh",
         marginTop: "-15px",
       }}

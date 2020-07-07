@@ -32,7 +32,7 @@ class CodeMirrorEditor extends Component {
       autocorrect: true,
     };
     return (
-      <div style={{ textAlign: "left", marginLeft: "700px" }}>
+      <div style={{ textAlign: "left", marginLeft: "600px" }}>
         <CodeMirror
           autoFocus
           value={this.state.code}

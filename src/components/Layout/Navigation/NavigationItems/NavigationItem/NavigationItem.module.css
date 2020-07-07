@@ -3,6 +3,7 @@
   box-sizing: border-box;
   display: block;
   width: 100%;
+  text-align: right;
 }
 
 .NavigationItem a {
@@ -18,6 +19,18 @@
 .NavigationItem a:active {
   color: #2c5881;
   cursor: pointer;
+}
+
+@media (max-width: 1400px) {
+  li.NavigationItem_NavigationItem__1G9DC {
+    text-align: center!;
+  }
+}
+
+@media (min-width: 1900px) {
+  .NavigationItem {
+    margin-left: 200px;
+  }
 }
 
 /* .NavigationItem {

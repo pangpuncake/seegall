@@ -21,10 +21,10 @@ const NavigationItems = (props) => {
       Log In
     </NavigationItem>
   ) : (
-      <NavigationItem link='/' click={logoutHandler}>
-        Log Out
-      </NavigationItem>
-    );
+    <NavigationItem link='/' click={logoutHandler}>
+      Log Out
+    </NavigationItem>
+  );
 
   return (
     <ul className={classes.NavigationItems}>
