@@ -184,7 +184,7 @@ class FullPost extends Component {
       let deletePostButton =
         this.props.email === this.props.loadedPost.email ? (
           <Button
-            btnType='Danger'
+            btnType="Danger"
             clicked={() => this.toggleDeletePopUpHandler()}
           >
             Delete Post
@@ -200,9 +200,7 @@ class FullPost extends Component {
       };
 
       let codemirror = this.props.loadedPost.code ? (
-        <div
-          style={{ textAlign: "left", marginLeft: "22%", marginRight: "10%" }}
-        >
+        <div style={{ textAlign: "left" }}>
           <CodeMirror
             value={this.props.loadedPost.code}
             className={"CodeMirror"}
@@ -213,7 +211,7 @@ class FullPost extends Component {
 
       console.log(this.props.loadedPost);
       post = (
-        <div style={{ textAlign: "center", paddingTop: "5%" }}>
+        <div style={{ textAlign: "center", padding: "5%", marginLeft: "15%" }}>
           <h2>{this.props.loadedPost.title}</h2>
           {codemirror}
           <p>{this.props.loadedPost.question}</p>
@@ -224,7 +222,7 @@ class FullPost extends Component {
           <div>{responseArray}</div>
           <form onSubmit={this.submitHandler}>
             {form}
-            <Button btnType='Success'>Reply</Button>
+            <Button btnType="Success">Reply</Button>
           </form>
           <p>{this.state.controls.response.value}</p>
         </div>
@@ -239,13 +237,13 @@ class FullPost extends Component {
         >
           <h3>Are you sure you want to delete this post?</h3>
           <Button
-            btnType='Danger'
+            btnType="Danger"
             clicked={() => this.deletePostHandler(this.props.id)}
           >
             Confirm
           </Button>
           <Button
-            btnType='Success'
+            btnType="Success"
             clicked={() => this.toggleDeletePopUpHandler()}
           >
             Cancel
