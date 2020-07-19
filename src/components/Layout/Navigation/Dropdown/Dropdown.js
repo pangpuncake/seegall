@@ -30,7 +30,7 @@ class Dropdown extends React.Component {
 
   render() {
     return (
-      <li
+      <div
         className={classes.NavigationItem}
         onMouseEnter={this.showDropdownMenu}
         onMouseLeave={this.hideDropdownMenu}
@@ -52,7 +52,7 @@ class Dropdown extends React.Component {
             </li>
           </ul>
         ) : null}
-      </li>
+      </div>
     );
   }
 }
