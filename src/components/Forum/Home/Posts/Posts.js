@@ -12,6 +12,7 @@ class Posts extends Component {
     disableShowMore: false,
   };
 
+<<<<<<< HEAD
   componentDidMount() {
     console.log("Posts props are below!");
     console.log(this.props);
@@ -24,9 +25,31 @@ class Posts extends Component {
       this.setState({
         oldNumber: this.state.showNumber,
       });
+=======
+    state = {
+        oldNumber: 5,
+        showNumber: 5,
+        disableShowMore: false
+    }
+
+    componentDidMount () {
+        console.log("Posts props are below!");
+        console.log(this.props);
+        this.props.onFetch();
+    }
+
+    componentDidUpdate () {
+        if (this.state.oldNumber !== this.state.showNumber) {
+            this.props.onFetch();
+            this.setState({
+                oldNumber: this.state.showNumber
+            })
+        }
+>>>>>>> parent of 96cfeb6... Update
     }
   }
 
+<<<<<<< HEAD
   postSelectedHandler = (id) => {
     console.log("postSelectedHandler!");
     // this.props.history.push({pathname: '/forum/home/' + id});
@@ -45,12 +68,34 @@ class Posts extends Component {
       this.setState({
         disableShowMore: true,
       });
+=======
+    postSelectedHandler = ( id ) => {
+        console.log('postSelectedHandler!')
+        // this.props.history.push({pathname: '/forum/home/' + id});
+        this.props.history.push( '/forum/home/' + id );
+    }
+
+    showMoreHandler = () => {
+        console.log('clicked')
+        if (this.props.posts && this.state.showNumber < this.props.posts.length ) {
+            this.setState((prevState) => { 
+                return {
+                    showNumber: prevState.showNumber + 5
+                }
+            })
+        } else {
+            this.setState({
+                disableShowMore: true
+            })
+        }
+>>>>>>> parent of 96cfeb6... Update
     }
   };
 
   render() {
     let postsArray = <Spinner />;
 
+<<<<<<< HEAD
     if (this.props.posts && !this.props.error && !this.props.loading) {
       postsArray = this.props.posts
         .slice(0, this.state.showNumber)
@@ -66,6 +111,31 @@ class Posts extends Component {
             />
           );
         });
+=======
+        if (this.props.posts && !this.props.error && !this.props.loading) {
+            postsArray = this.props.posts.slice(0,this.state.showNumber).map(post => {
+                //console.log(post.question)
+                //console.log(post.id)
+                return <Post
+                    key = {post.id}
+                    question = {post.question}
+                    email = {post.email}
+                    clicked = {() => this.postSelectedHandler(post.id)} />
+            })
+        }
+        return (
+            <div style = {{textAlign: 'center'}}>
+                <p style = {{color: 'black'}}>~~~~~~ Searchbar ~~~~~~</p>
+                {postsArray}
+                <Button 
+                    btnType = 'Success' 
+                    clicked = {() => this.showMoreHandler()}
+                    disabled = {this.state.disableShowMore}>
+                        Show more posts
+                </Button>
+            </div>
+        )
+>>>>>>> parent of 96cfeb6... Update
     }
     return (
       <div style={{ textAlign: "center", marginLeft: "18%" }}>

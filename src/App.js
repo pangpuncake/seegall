@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 import Layout from "./components/Layout/Layout";
 import "./App.css";
@@ -5,6 +6,17 @@ import { Route, Switch } from "react-router-dom";
 import Forum from "../src/components/Forum/Forum";
 import MainText from "./components/MainText/MainText";
 import AlgorithmsPage from "./components/AlgorithmsPage/AlgorithmsPage";
+=======
+import React, { Component } from 'react';
+import Layout from './components/Layout/Layout';
+import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import CodeMirrorEditor from './components/CodeMirrorEditor/CodeMirrorEditor';
+import Forum from '../src/components/Forum/Forum'
+import MainText from './components/MainText/MainText';
+import Sorting from './components/AlgorithmsPage/Sorting/Sorting'
+import AlgorithmsPage from './components/AlgorithmsPage/AlgorithmsPage'
+>>>>>>> parent of 96cfeb6... Update
 
 class App extends Component {
   render() {

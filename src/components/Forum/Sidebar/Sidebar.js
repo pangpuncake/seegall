@@ -12,6 +12,7 @@ const Sidebar = () => {
         position: "fixed",
       }}
     >
+<<<<<<< HEAD
       <ul
         style={{
           overflow: "hidden",
@@ -22,6 +23,14 @@ const Sidebar = () => {
         }}
       >
         <NavigationItem link='/forum/home'>Home</NavigationItem>
+=======
+      <ul style={{ overflow: "hidden", position: "fixed", padding: "150px 0" }}>
+        <NavigationItem link='/forum/home'>
+          {" "}
+          <MDBIcon icon='home' />
+          Home
+        </NavigationItem>
+>>>>>>> parent of 96cfeb6... Update
         <NavigationItem link='/forum/newpost'>Create Post</NavigationItem>
         <NavigationItem link='/forum/tags'>Tags</NavigationItem>
         <NavigationItem link='/forum/popular'>Popular</NavigationItem>

@@ -10,17 +10,17 @@ const Response = (props) => {
         props.deleteResponse(props.id, props.responseID);
     }
 
-    let showButton =
-        props.email === props.resEmail
-            ? <Button btnType='Danger' clicked={() => deleteResponseHandler()}>Delete Reply</Button>
-            : null;
+    let showButton = 
+        props.email === props.resEmail 
+        ?  <Button btnType = 'Danger' clicked = {() => deleteResponseHandler()}>Delete Reply</Button>
+        : null;
 
     return (
-        <div className={classes.Response}>
+        <div className = {classes.Response}>
             <section>
-                {props.resEmail} : `{props.response}`
+                {props.resEmail} : {props.response}
             </section>
-            {showButton}
+           {showButton}
         </div>
     )
 }
