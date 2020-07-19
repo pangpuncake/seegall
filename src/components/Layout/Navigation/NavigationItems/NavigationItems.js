@@ -17,11 +17,11 @@ const NavigationItems = (props) => {
   console.log(props);
 
   let authLogin = !props.loggedIn ? (
-    <NavigationItem link='/' click={authContext.showLoginHandler}>
+    <NavigationItem link="/" click={authContext.showLoginHandler}>
       Log In
     </NavigationItem>
   ) : (
-    <NavigationItem link='/' click={logoutHandler}>
+    <NavigationItem link="/" click={logoutHandler}>
       Log Out
     </NavigationItem>
   );
@@ -29,8 +29,8 @@ const NavigationItems = (props) => {
   return (
     <ul className={classes.NavigationItems}>
       <Dropdown />
-      <NavigationItem link='/'>Create</NavigationItem>
-      <NavigationItem link='/forum/home'>Forum</NavigationItem>
+      <NavigationItem link="/create">Create</NavigationItem>
+      <NavigationItem link="/forum/home">Forum</NavigationItem>
       {authLogin}
     </ul>
   );
