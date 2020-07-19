@@ -17,13 +17,16 @@ const NavigationItems = (props) => {
   console.log(props);
 
   let authLogin = !props.loggedIn ? (
-    <NavigationItem link="/" click={authContext.showLoginHandler}>
-      Log In
-    </NavigationItem>
+    <li
+      className={classes.NavigationItem}
+      onClick={authContext.showLoginHandler}
+    >
+      <p>Log In</p>
+    </li>
   ) : (
-    <NavigationItem link="/" click={logoutHandler}>
-      Log Out
-    </NavigationItem>
+    <li className={classes.NavigationItem} onClick={logoutHandler}>
+      <p>Log Out</p>
+    </li>
   );
 
   return (

@@ -134,7 +134,11 @@ class NewPost extends Component {
       );
     }
 
-    return <div style={{ textAlign: "center" }}>{newPost}</div>;
+    return (
+      <div style={{ textAlign: "center", marginLeft: "15%", padding: "2%" }}>
+        {newPost}
+      </div>
+    );
   }
 }
 

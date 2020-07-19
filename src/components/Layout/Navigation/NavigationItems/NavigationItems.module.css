@@ -15,3 +15,38 @@
     flex-flow: row;
   }
 }
+
+.NavigationItem {
+  margin: 0px 20px;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.NavigationItem p {
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 1.28rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+}
+
+.NavigationItem p:hover,
+.NavigationItem p:active {
+  color: #2c5881;
+  cursor: pointer;
+}
+
+@media (max-width: 1400px) {
+  p.NavigationItem_NavigationItem__1G9DC {
+    text-align: center!;
+  }
+}
+
+@media (min-width: 1900px) {
+  .NavigationItem {
+    margin-left: 60px;
+  }
+}
