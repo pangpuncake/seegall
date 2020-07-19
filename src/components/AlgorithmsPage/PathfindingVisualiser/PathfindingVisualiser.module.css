@@ -1,9 +1,18 @@
 .grid {
   margin: 100 0 0;
+  margin-left: 8px;
 }
 
-@media (max-width: 500px) {
+.buttons {
+  margin-left: 540px;
+}
+
+@media (min-width: 1900px) {
   .grid {
-    margin: 0 0 0;
+    margin: 100 0 0;
+    margin-left: 300px;
+  }
+  .buttons {
+    margin-left: 800px;
   }
 }

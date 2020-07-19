@@ -18,7 +18,7 @@ function TabPanel(props) {
 
   return (
     <div
-      role="tabpanel"
+      role='tabpanel'
       hidden={value !== index}
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
@@ -49,7 +49,7 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
-    width: 960,
+    width: "50%",
     float: "right",
   },
 }));
@@ -69,20 +69,20 @@ export default function FullWidthTabs() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
-        <Grid justify="space-between">
+      <AppBar position='static' color='default' width='50%'>
+        <Grid justify='space-between'>
           <Tabs
             value={value}
             onChange={handleChange}
-            indicatorColor="primary"
-            textColor="primary"
-            variant="fullWidth"
-            aria-label="full width tabs example"
+            indicatorColor='primary'
+            textColor='primary'
+            variant='fullWidth'
+            aria-label='full width tabs example'
           >
-            <Tab label="Get Started" {...a11yProps(0)} />
-            <Tab label="Merge Sort" {...a11yProps(1)} />
-            <Tab label="Bubble Sort" {...a11yProps(2)} />
-            <Tab label="Quick Sort" {...a11yProps(3)} />
+            <Tab label='Get Started' {...a11yProps(0)} />
+            <Tab label='Merge Sort' {...a11yProps(1)} />
+            <Tab label='Bubble Sort' {...a11yProps(2)} />
+            <Tab label='Quick Sort' {...a11yProps(3)} />
           </Tabs>
         </Grid>
       </AppBar>

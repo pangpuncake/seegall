@@ -12,7 +12,12 @@ export class Forum extends Component {
         <div className={classes.Forum}>
           <Sidebar />
           <div
-            style={{ backgroundColor: "white", width: "100%", height: "100%" }}
+            style={{
+              backgroundColor: "white",
+              width: "100%",
+              height: "100%",
+              position: "static",
+            }}
           >
             <Switch>
               <Route path='/forum/home' component={Home} />

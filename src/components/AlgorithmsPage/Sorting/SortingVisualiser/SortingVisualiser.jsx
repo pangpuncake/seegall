@@ -122,7 +122,7 @@ export default class SortingVisualiser extends React.Component {
     const { array } = this.state;
     return (
       <div>
-        <div className="button">
+        <div className='button'>
           <button onClick={() => this.resetArray()}>Get new array!</button>
           <button onClick={() => this.mergeSortVisualisation()}>
             Merge Sort
@@ -134,19 +134,22 @@ export default class SortingVisualiser extends React.Component {
             Quick Sort
           </button>
         </div>
-        <div className="slider">
+        <div className='slider'>
           <Slider
             value={this.state.speed}
             onChange={(event, value) => this.changeSpeedHandler(value)}
             onChangeCommitted={(event, value) => this.changeSpeedHandler(value)}
           />
         </div>
-        <div className="container">
+        <div className='container'>
           {array.map((value, idx) => (
             <div
-              className="bar"
+              className='bar'
               key={idx}
-              style={{ height: `${value}px`, backgroundColor: ORIGINAL_COLOR }}
+              style={{
+                height: `${value}px`,
+                backgroundColor: ORIGINAL_COLOR,
+              }}
             ></div>
           ))}
         </div>

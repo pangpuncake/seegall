@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 import "../../../node_modules/codemirror/lib/codemirror.css";
 import { Controlled as CodeMirror } from "react-codemirror2";
-import CircularProgress from "@material-ui/core/CircularProgress";
+// import CircularProgress from "@material-ui/core/CircularProgress";
 require("codemirror/mode/xml/xml");
 require("codemirror/mode/javascript/javascript");
 
@@ -33,7 +33,7 @@ class CodeMirrorEditor extends Component {
       autocorrect: true,
     };
     return (
-      <div style={{ textAlign: "left" }}>
+      <div style={{ textAlign: "left", marginLeft: "600px" }}>
         <CodeMirror
           autoFocus
           value={this.state.code}

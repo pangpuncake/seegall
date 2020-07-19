@@ -1,27 +1,30 @@
 .dropdown {
-  margin: 10px 30px;
+  margin: 15px 30px;
   box-sizing: border-box;
   display: block;
 }
 ul {
   list-style-type: none;
-  margin: 0;
+  margin-top: 8px;
   padding: 0;
-  width: 200px;
-  font-weight: bold;
+  width: 150px;
+  height: 50px;
+  font-weight: 200;
   position: absolute;
   z-index: 1;
 }
-li a {
+/* li a {
   color: white;
   text-decoration: none;
   white-space: nowrap;
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
   font-weight: 200;
-}
+} */
+
 li {
-  padding: 8px 16px;
+  padding: 6px 8px;
+  text-align: left;
 }
 
 .drop-component :hover {
@@ -30,9 +33,11 @@ li {
 
 .box {
   background-color: #000000;
+  height: 50px;
+  vertical-align: middle;
 }
 
-.button {
+/* .button {
   color: white;
   text-decoration: none;
   white-space: nowrap;
@@ -40,4 +45,12 @@ li {
   font-family: "Poppins", sans-serif;
   font-weight: 200;
   margin-right: 300px;
+} */
+
+.title-box {
+  white-space: nowrap;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  text-align: left;
 }

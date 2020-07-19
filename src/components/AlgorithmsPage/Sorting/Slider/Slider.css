@@ -1,7 +1,17 @@
 .title {
   font-weight: 200;
   position: relative;
-  top: -100px;
-  left: 300px;
+  top: -85px;
+  left: 180px;
   display: flex;
+}
+
+@media (min-width: 1900px) {
+  .title {
+    font-weight: 200;
+    position: relative;
+    top: -90px;
+    left: 300px;
+    display: flex;
+  }
 }
