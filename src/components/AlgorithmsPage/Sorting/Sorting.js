@@ -4,7 +4,7 @@ import Box from "./Explanations/Box";
 
 const Sorting = (props) => {
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'row' }}>
       <SortingVisualiser></SortingVisualiser>
       <Box></Box>
     </div>

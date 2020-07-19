@@ -16,7 +16,7 @@ class FullPost extends Component {
     state = {
         controls: {
             response: {
-                elementType: 'input',
+                elementType: 'textarea',
                 elementConfig: {
                     type: 'response',
                     placeholder: 'Write your response here!'
@@ -149,7 +149,7 @@ class FullPost extends Component {
 
         let post =
             this.state.deleted
-                ? <p>This post has been deleted. Sorry!</p>
+                ? <h2>This post has been deleted. Sorry!</h2>
                 : <Spinner />;
         if (!this.props.loading && this.props.loadedPost !== null && this.props.loadedPost !== undefined) {
 
@@ -191,15 +191,19 @@ class FullPost extends Component {
             console.log(this.props.loadedPost);
             post = (
                 <div style={{ textAlign: 'center', paddingTop: '5%' }}>
-                    <h2>{this.props.loadedPost.question}</h2>
+                    <h2>{this.props.loadedPost.title}</h2>
                     {codemirror}
-                    <p>Posted by: {this.props.loadedPost.email}</p>
+                    <p>{this.props.loadedPost.question}</p>
+                    <div style={{ textAlign: "right" }}>
+                        <p>Posted by: {this.props.loadedPost.email}</p>
+                    </div>
                     {deletePostButton}
                     <div>{responseArray}</div>
                     <form onSubmit={this.submitHandler}>
                         {form}
                         <Button btnType='Success'>Reply</Button>
                     </form>
+                    <p>{this.state.controls.response.value}</p>
                 </div>
             )
         }

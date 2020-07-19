@@ -27,14 +27,16 @@ export const updateCodeStart = (code) => {
     }
 }
 
-export const submitPost = (email, code, value) => {
+export const submitPost = (email, code, title, value) => {
     console.log('Code here! ', code);
     return dispatch => {
         dispatch(newPostStart());
         const postData = {
-            code: code,
-            question: value,
             email: email,
+            code: code,
+            title: title,
+            question: value,
+
         }
         axios.post('https://seegall-d5efa.firebaseio.com/posts.json', postData)
             .then(response => {

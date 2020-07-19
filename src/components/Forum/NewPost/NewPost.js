@@ -10,8 +10,22 @@ import CodeMirrorEditor from '../../CodeMirrorEditor/CodeMirrorEditor'
 class NewPost extends Component {
     state = {
         controls: {
-            question: {
+            title: {
                 elementType: "input",
+                elementConfig: {
+                    type: "title",
+                    placeholder: "Write your title here!",
+                },
+                validation: {
+                    isTitle: true,
+                    required: true,
+                },
+                value: "",
+                touched: false,
+                valid: false,
+            },
+            question: {
+                elementType: "textarea",
                 elementConfig: {
                     type: "question",
                     placeholder: "Write your question here!",
@@ -57,7 +71,7 @@ class NewPost extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        this.props.onPost(this.props.email, this.props.code, this.state.controls.question.value);
+        this.props.onPost(this.props.email, this.props.code, this.state.controls.title.value, this.state.controls.question.value);
     };
 
     render() {
@@ -110,9 +124,9 @@ class NewPost extends Component {
                 </Fragment>
         }
 
-        // if (this.props.email === '') {
-        //     newPost = <h3>Please log in or sign up first!</h3>
-        // }
+        if (this.props.email === '') {
+            newPost = <h1 style={{ paddingTop: '10%' }}>Please log in or sign up first!</h1>
+        }
 
         return (
             <div style={{ textAlign: 'center' }}>
@@ -134,7 +148,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onPost: (email, code, value) => dispatch(actions.submitPost(email, code, value))
+        onPost: (email, code, title, value) => dispatch(actions.submitPost(email, code, title, value))
     }
 }
 

@@ -8,7 +8,7 @@ const MainText = (props) => {
         <h1 className={classes.Header}>Visualise Your Code</h1>
         <p>
           See hundreds of algorithms all in one place and contribute to our
-          community.
+          community. `hello world`
         </p>
       </p>
     </div>

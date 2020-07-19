@@ -10,7 +10,7 @@ const Sidebar = () => {
         width: "20%",
       }}
     >
-      <ul style={{ overflow: "hidden", position: "fixed", padding: "150px 0" }}>
+      <ul style={{ overflow: "hidden", position: "inherit", padding: "150px 0" }}>
         <NavigationItem link='/forum/home'>
           {" "}
           <MDBIcon icon='home' />
