@@ -4,9 +4,11 @@ import Bars from '../Bars/Bars'
 class BubbleSort extends Component {
 
     state = {
-        array: [<Bars height = '3' color = {'white'} />, <Bars height = '4' color = {'white'} />, <Bars height = '5' color = {'white'} />],
+        array: [<Bars height='3' color={'white'} />, <Bars height='4' color={'white'} />, <Bars height='5' color={'white'} />],
         updated: false
     }
+
+
 
     // setArrayHandler = (index, object) => {
     //     const prevArray = [...this.state.array]
@@ -39,9 +41,20 @@ class BubbleSort extends Component {
     // }
 
     render() {
-    
+
+        const fs = require('fs');
+
+        fs.readFile('../Bars/Bars.js', (err, data) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(data);
+            }
+
+        })
+
         return (
-            <div style = {{width: '100%', height: '100%', display: 'flex'}}>
+            <div style={{ width: '100%', height: '100%', display: 'flex' }}>
                 {this.state.array}
             </div>
         )

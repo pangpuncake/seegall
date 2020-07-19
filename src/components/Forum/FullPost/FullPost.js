@@ -69,7 +69,6 @@ class FullPost extends Component {
       );
       this.setState({
         controls: {
-<<<<<<< HEAD
           response: {
             elementType: "input",
             elementConfig: {
@@ -79,20 +78,6 @@ class FullPost extends Component {
             value: "",
             validation: {
               required: true,
-=======
-            response: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'response',
-                    placeholder: 'Write your response here!'
-                },
-                value: '',
-                validation: {
-                    required: true,
-                },
-                valid: false,
-                touched: false
->>>>>>> parent of 96cfeb6... Update
             },
             valid: false,
             touched: false,
@@ -214,7 +199,6 @@ class FullPost extends Component {
         autocorrect: true,
       };
 
-<<<<<<< HEAD
       let codemirror = this.props.loadedPost.code ? (
         <div
           style={{ textAlign: "left", marginLeft: "22%", marginRight: "10%" }}
@@ -226,103 +210,6 @@ class FullPost extends Component {
           />
         </div>
       ) : null;
-=======
-    render() {
-        const formElementsArray = [];
-        for (let key in this.state.controls) {
-            formElementsArray.push({
-                id: key,
-                config: this.state.controls[key]
-            });
-        }
-
-        let form = formElementsArray.map(formElement => (
-            <Input
-                key={formElement.id}
-                elementType={formElement.config.elementType}
-                elementConfig={formElement.config.elementConfig}
-                value={formElement.config.value}
-                invalid={!formElement.config.valid}
-                shouldValidate={formElement.config.validation}
-                touched={formElement.config.touched}
-                changed={(event) => this.inputChangedHandler(event, formElement.id)} />
-        ));
-
-        let post =
-            this.state.deleted
-                ? <p>This post has been deleted. Sorry!</p>
-                : <Spinner />;
-        if (!this.props.loading && this.props.loadedPost !== null && this.props.loadedPost !== undefined) {
-
-            let responseArray = <p>No replies. Be the first one!</p>
-            if (this.props.loadedPost.responses !== undefined) {
-                responseArray = Object.keys(this.props.loadedPost.responses).map(key => {
-                    return (
-                        <Response
-                            key={key}
-                            response={this.props.loadedPost.responses[key].response}
-                            resEmail={this.props.loadedPost.responses[key].email}
-                            responseID={key} />
-                    )
-                })
-            }
-
-            let deletePostButton =
-                this.props.email === this.props.loadedPost.email
-                    ? <Button btnType='Danger' clicked={() => this.toggleDeletePopUpHandler()}>Delete Post</Button>
-                    : null;
-
-            const options = {
-                lineNumbers: true,
-                mode: 'javascript',
-                theme: 'midnight',
-                spellcheck: true,
-                autocorrect: true
-            }
-
-            let codemirror = this.props.loadedPost.code ?
-                <div style={{ textAlign: 'left' }}>
-                    <CodeMirror
-                        value={this.props.loadedPost.code}
-                        className={'CodeMirror'}
-                        options={options} />
-                </div>
-                : null
-
-            console.log(this.props.loadedPost);
-            post = (
-                <div style={{ textAlign: 'center', paddingTop: '5%' }}>
-                    <h2>{this.props.loadedPost.question}</h2>
-                    {codemirror}
-                    <p>Posted by: {this.props.loadedPost.email}</p>
-                    {deletePostButton}
-                    <div>{responseArray}</div>
-                    <form onSubmit={this.submitHandler}>
-                        {form}
-                        <Button btnType='Success'>Reply</Button>
-                    </form>
-                </div>
-            )
-        }
-
-
-
-
-        return (
-            <Fragment>
-                <PopUp
-                    show={this.state.showDeleteConfirmation}
-                    clicked={() => this.toggleDeletePopUpHandler()}>
-                    <h3>Are you sure you want to delete this post?</h3>
-                    <Button btnType='Danger' clicked={() => this.deletePostHandler(this.props.id)}>Confirm</Button>
-                    <Button btnType='Success' clicked={() => this.toggleDeletePopUpHandler()}>Cancel</Button>
-                </PopUp>
-                {post}
-            </Fragment>
-        )
-    }
-}
->>>>>>> parent of 96cfeb6... Update
 
       console.log(this.props.loadedPost);
       post = (

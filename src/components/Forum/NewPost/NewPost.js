@@ -7,7 +7,6 @@ import Spinner from "../../Layout/UI/Spinner/Spinner";
 import CodeMirrorEditor from "../../CodeMirrorEditor/CodeMirrorEditor";
 
 class NewPost extends Component {
-<<<<<<< HEAD
   state = {
     controls: {
       title: {
@@ -54,58 +53,6 @@ class NewPost extends Component {
         ),
         touched: true,
       },
-=======
-    state = {
-        controls: {
-            question: {
-                elementType: "input",
-                elementConfig: {
-                    type: "question",
-                    placeholder: "Write your question here!",
-                },
-                validation: {
-                    isQuestion: true,
-                    required: true,
-                },
-                value: "",
-                touched: false,
-                valid: false,
-            },
-        },
-        showNewPost: false,
-    };
-
-    inputChangedHandler = (event, controlName) => {
-        const updatedControls = {
-            ...this.state.controls,
-            [controlName]: {
-                ...this.state.controls[controlName],
-                value: event.target.value,
-                valid: this.checkValidity(
-                    event.target.value,
-                    this.state.controls[controlName].validation
-                ),
-                touched: true,
-            },
-        };
-        this.setState({ controls: updatedControls });
-    };
-
-    checkValidity = (value, rules) => {
-        let isValid = true;
-        if (!rules) {
-            return isValid;
-        }
-        if (rules.required) {
-            isValid = value.trim() !== "" && isValid;
-        }
-        return isValid;
-    };
-
-    submitHandler = (event) => {
-        event.preventDefault();
-        this.props.onPost(this.props.email, this.props.code, this.state.controls.question.value);
->>>>>>> parent of 96cfeb6... Update
     };
     this.setState({ controls: updatedControls });
   };
@@ -140,7 +87,6 @@ class NewPost extends Component {
       });
     }
 
-<<<<<<< HEAD
     let form = formElementsArray.map((formElement) => (
       <Input
         key={formElement.id}
@@ -168,11 +114,6 @@ class NewPost extends Component {
     if (this.props.loading) {
       newPost = <Spinner />;
     }
-=======
-        // if (this.props.email === '') {
-        //     newPost = <h3>Please log in or sign up first!</h3>
-        // }
->>>>>>> parent of 96cfeb6... Update
 
     if (this.props.uploaded) {
       newPost = <h3>Your post has been successfully uploaded!</h3>;
@@ -187,16 +128,10 @@ class NewPost extends Component {
       );
     }
 
-<<<<<<< HEAD
     if (this.props.email === "") {
       newPost = (
         <h1 style={{ paddingTop: "10%" }}>Please log in or sign up first!</h1>
       );
-=======
-const mapDispatchToProps = dispatch => {
-    return {
-        onPost: (email, code, value) => dispatch(actions.submitPost(email, code, value))
->>>>>>> parent of 96cfeb6... Update
     }
 
     return <div style={{ textAlign: "center" }}>{newPost}</div>;
