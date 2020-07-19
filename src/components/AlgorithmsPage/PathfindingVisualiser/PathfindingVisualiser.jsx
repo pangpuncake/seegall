@@ -6,6 +6,7 @@ import { dijkstra } from "./Algorithms/Dijkstra";
 import styles from "./PathfindingVisualiser.module.css";
 import { shortestPath } from "./Algorithms/Dijkstra";
 import { refreshPage } from "./Refresh";
+import SimpleAccordion from "./Explanation/SimpleAccordion";
 
 const START_NODE_ROW = 10;
 const START_NODE_COL = 5;
@@ -117,6 +118,7 @@ export default class PathfindingVisualiser extends Component {
               </div>
             );
           })}
+          <SimpleAccordion />
         </div>
       </>
     );
