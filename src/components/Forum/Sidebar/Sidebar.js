@@ -5,11 +5,12 @@ const Sidebar = () => {
   return (
     <div
       style={{
-        backgroundColor: "slategrey",
+        backgroundColor: "#212121",
         width: "15%",
         height: "100vh",
         marginTop: "-15px",
         position: "fixed",
+        color: "#bbb",
       }}
     >
       <ul
@@ -21,11 +22,11 @@ const Sidebar = () => {
           width: "15%",
         }}
       >
-        <NavigationItem link='/forum/home'>Home</NavigationItem>
-        <NavigationItem link='/forum/newpost'>Create Post</NavigationItem>
-        <NavigationItem link='/forum/tags'>Tags</NavigationItem>
-        <NavigationItem link='/forum/popular'>Popular</NavigationItem>
-        <NavigationItem link='/forum/latest'>Latest</NavigationItem>
+        <NavigationItem link="/forum/home">Home</NavigationItem>
+        <NavigationItem link="/forum/newpost">Create Post</NavigationItem>
+        <NavigationItem link="/forum/tags">Tags</NavigationItem>
+        <NavigationItem link="/forum/popular">Popular</NavigationItem>
+        <NavigationItem link="/forum/latest">Latest</NavigationItem>
       </ul>
     </div>
   );

@@ -211,7 +211,7 @@ class FullPost extends Component {
 
       console.log(this.props.loadedPost);
       post = (
-        <div style={{ textAlign: "center", padding: "5%", marginLeft: "15%" }}>
+        <div>
           <h2>{this.props.loadedPost.title}</h2>
           {codemirror}
           <p>{this.props.loadedPost.question}</p>
@@ -249,7 +249,9 @@ class FullPost extends Component {
             Cancel
           </Button>
         </PopUp>
-        {post}
+        <div style={{ textAlign: "center", padding: "5%", marginLeft: "15%" }}>
+          {post}
+        </div>
       </Fragment>
     );
   }

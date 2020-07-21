@@ -21,6 +21,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Description from "../Description/Description";
 import CodeMirror from "../CodeMirrorEditor/CodeMirrorEditor";
 import BarChart from "../BarChart/BarChart";
+import HomeIcon from "@material-ui/icons/Home";
 
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
@@ -53,9 +54,10 @@ const useStyles = makeStyles((theme) => ({
   },
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
+
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: "#2e2e2e",
+    backgroundColor: "#212121",
     color: "#bbb",
   },
   content: {
@@ -65,6 +67,10 @@ const useStyles = makeStyles((theme) => ({
     color: "#bbb",
   },
 }));
+
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
 
 function ResponsiveDrawer(props) {
   const { window } = props;
@@ -105,6 +111,15 @@ function ResponsiveDrawer(props) {
     <div>
       <div className={classes.toolbar} />
       <List>
+        <ListItem button key="Home">
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemLink href="/">
+            <ListItemText primary="Home" />
+          </ListItemLink>
+        </ListItem>
+        <Divider />
         <ListItem
           button
           key="createFunction"
