@@ -1,6 +1,8 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
 
+const SERVER = "https://stormy-journey-23744.herokuapp.com";
+
 export const codeStart = () => {
   return {
     type: actionTypes.CODE_START,
@@ -51,7 +53,7 @@ export const postCode = (code, algorithm, array) => {
     };
     console.log(postBody);
     axios
-      .post("http://localhost:5000/api/code", postBody)
+      .post(`${SERVER}/api/code`, postBody)
       .then((res) => {
         console.log(res);
         dispatch(codeSuccess(res.data));
@@ -67,7 +69,7 @@ export const getSort = (algorithm) => {
   return (dispatch) => {
     dispatch(updateCodeStart());
     axios
-      .get(`http://localhost:5000/api/code/sorting/${algorithm}`)
+      .get(`${SERVER}/api/code/sorting/${algorithm}`)
       .then((res) => {
         console.log(res);
         dispatch(
