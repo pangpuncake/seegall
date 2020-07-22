@@ -99,7 +99,7 @@ function ResponsiveDrawer(props) {
   };
 
   const buildHandler = () => {
-    if (props.array.length === 0) {
+    if (props.array.length === 0 || props.array === undefined) {
       props.setError("Please set an array before building!");
     } else {
       props.postCode(code, props.algorithm, props.array);

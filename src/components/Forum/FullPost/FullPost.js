@@ -8,6 +8,8 @@ import Response from "./Response/Response";
 import PopUp from "../../Layout/PopUp/PopUp";
 import "../../../../node_modules/codemirror/lib/codemirror.css";
 import { Controlled as CodeMirror } from "react-codemirror2";
+import "codemirror/lib/codemirror.css";
+import "codemirror/theme/material.css";
 require("codemirror/mode/xml/xml");
 require("codemirror/mode/javascript/javascript");
 
@@ -194,7 +196,7 @@ class FullPost extends Component {
       const options = {
         lineNumbers: true,
         mode: "javascript",
-        theme: "midnight",
+        theme: "material",
         spellcheck: true,
         autocorrect: true,
       };

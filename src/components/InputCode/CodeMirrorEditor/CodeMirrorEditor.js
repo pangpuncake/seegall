@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../../../node_modules/codemirror/lib/codemirror.css";
+// import "../../../../node_modules/codemirror/lib/codemirror.css";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import { connect } from "react-redux";
 import "codemirror/lib/codemirror.css";

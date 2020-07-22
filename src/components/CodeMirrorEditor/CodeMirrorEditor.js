@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
-import "../../../node_modules/codemirror/lib/codemirror.css";
+// import "../../../node_modules/codemirror/lib/codemirror.css";
 import { Controlled as CodeMirror } from "react-codemirror2";
+import "codemirror/lib/codemirror.css";
+import "codemirror/theme/material.css";
 // import CircularProgress from "@material-ui/core/CircularProgress";
 require("codemirror/mode/xml/xml");
 require("codemirror/mode/javascript/javascript");
@@ -28,7 +30,7 @@ class CodeMirrorEditor extends Component {
     const options = {
       lineNumbers: true,
       mode: "javascript",
-      theme: "midnight",
+      theme: "material",
       spellcheck: true,
       autocorrect: true,
     };
