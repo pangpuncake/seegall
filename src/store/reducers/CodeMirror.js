@@ -54,8 +54,19 @@ const updateCodeFail = (state, action) => {
   return updateObject(state, {
     loading: false,
     error: action.error,
-    code: "//ERROR! Please Try Again.",
     completedGet: true,
+  });
+};
+
+const removeError = (state, action) => {
+  return updateObject(state, {
+    error: null,
+  });
+};
+
+const setError = (state, action) => {
+  return updateObject(state, {
+    error: action.error,
   });
 };
 
@@ -73,6 +84,10 @@ const reducer = (state = initialState, action) => {
       return updateCodeSuccess(state, action);
     case actionTypes.UPDATE_CODE_FAIL:
       return updateCodeFail(state, action);
+    case actionTypes.REMOVE_ERROR:
+      return removeError(state, action);
+    case actionTypes.SET_ERROR:
+      return setError(state, action);
     default:
       return state;
   }

@@ -39,3 +39,6 @@ export const UPDATE_CODE_SUCCESS = "UPDATE_CODE_SUCCESS";
 export const UPDATE_CODE_FAIL = "UPDATE_CODE_FAIL";
 
 export const SET_ARRAY = "SET_ARRAY";
+
+export const REMOVE_ERROR = "REMOVE_ERROR";
+export const SET_ERROR = "SET_ERROR";

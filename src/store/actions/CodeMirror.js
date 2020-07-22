@@ -45,6 +45,19 @@ export const updateCodeFail = (error) => {
   };
 };
 
+export const setError = (error) => {
+  return {
+    type: actionTypes.SET_ERROR,
+    error: error,
+  };
+};
+
+export const removeError = () => {
+  return {
+    type: actionTypes.REMOVE_ERROR,
+  };
+};
+
 export const postCode = (code, algorithm, array) => {
   return (dispatch) => {
     dispatch(codeStart());
@@ -56,7 +69,11 @@ export const postCode = (code, algorithm, array) => {
       .post(`${SERVER}/api/code`, postBody)
       .then((res) => {
         console.log(res);
-        dispatch(codeSuccess(res.data));
+        if (!res.data.commands) {
+          dispatch(updateCodeFail("Please check your code again."));
+        } else {
+          dispatch(codeSuccess(res.data));
+        }
       })
       .catch((err) => {
         console.log(err);

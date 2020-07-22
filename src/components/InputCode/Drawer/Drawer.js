@@ -22,6 +22,7 @@ import Description from "../Description/Description";
 import CodeMirror from "../CodeMirrorEditor/CodeMirrorEditor";
 import BarChart from "../BarChart/BarChart";
 import HomeIcon from "@material-ui/icons/Home";
+import PopUp from "../../Layout/PopUp/PopUp";
 
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
@@ -98,7 +99,11 @@ function ResponsiveDrawer(props) {
   };
 
   const buildHandler = () => {
-    props.postCode(code, props.algorithm, props.array);
+    if (props.array.length === 0) {
+      props.setError("Please set an array before building!");
+    } else {
+      props.postCode(code, props.algorithm, props.array);
+    }
   };
 
   React.useEffect(
@@ -160,69 +165,74 @@ function ResponsiveDrawer(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        className={classes.appBar}
-        style={{ backgroundColor: "#212121", color: "#bbb" }}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            className={classes.menuButton}
-          >
-            <MenuIcon />
-          </IconButton>
+    <React.Fragment>
+      <PopUp show={props.error} click={() => props.removeError()}>
+        <p style={{ textAlign: "center" }}>{props.error}</p>
+      </PopUp>
+      <div className={classes.root}>
+        <CssBaseline />
+        <AppBar
+          position="fixed"
+          className={classes.appBar}
+          style={{ backgroundColor: "#212121", color: "#bbb" }}
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              className={classes.menuButton}
+            >
+              <MenuIcon />
+            </IconButton>
 
-          <Typography variant="h6" noWrap>
-            Code Visualiser
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <nav className={classes.drawer} aria-label="mailbox folders">
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="permanent"
-            open
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-      </nav>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Description />
-        <Divider />
-        <CodeMirror value={code} onChange={CodeMirrorHandler} />
-        <Divider />
-        <BarChart />
-      </main>
-    </div>
+            <Typography variant="h6" noWrap>
+              Code Visualiser
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <nav className={classes.drawer} aria-label="mailbox folders">
+          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+          <Hidden smUp implementation="css">
+            <Drawer
+              container={container}
+              variant="temporary"
+              anchor={theme.direction === "rtl" ? "right" : "left"}
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+              ModalProps={{
+                keepMounted: true, // Better open performance on mobile.
+              }}
+            >
+              {drawer}
+            </Drawer>
+          </Hidden>
+          <Hidden xsDown implementation="css">
+            <Drawer
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+              variant="permanent"
+              open
+            >
+              {drawer}
+            </Drawer>
+          </Hidden>
+        </nav>
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          <Description />
+          <Divider />
+          <CodeMirror value={code} onChange={CodeMirrorHandler} />
+          <Divider />
+          <BarChart />
+        </main>
+      </div>
+    </React.Fragment>
   );
 }
 
@@ -241,6 +251,7 @@ const mapStateToProps = (state) => {
     code: state.code.code,
     loading: state.code.loading,
     completedGet: state.code.completedGet,
+    error: state.code.error,
   };
 };
 
@@ -251,6 +262,8 @@ const mapDispatchToProps = (dispatch) => {
     updateCode: (algorithm, code) =>
       dispatch(actions.updateCodeSuccess(algorithm, code)),
     getSort: (algorithm) => dispatch(actions.getSort(algorithm)),
+    removeError: () => dispatch(actions.removeError()),
+    setError: (error) => dispatch(actions.setError(error)),
   };
 };
 

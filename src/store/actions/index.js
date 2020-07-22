@@ -8,6 +8,12 @@ export { fetchFullPost } from "./fullpost";
 
 export { uploadResponse, deleteResponse, deletePost } from "./fullpost";
 
-export { postCode, updateCodeSuccess, getSort } from "./CodeMirror";
+export {
+  postCode,
+  updateCodeSuccess,
+  getSort,
+  removeError,
+  setError,
+} from "./CodeMirror";
 
 export { setArray } from "./BarChart";
