@@ -6,7 +6,7 @@ import Input from "../../Layout/UI/Input/Input";
 import Button from "../../Layout/UI/Button/Button";
 import Response from "./Response/Response";
 import PopUp from "../../Layout/PopUp/PopUp";
-import "../../../../node_modules/codemirror/lib/codemirror.css";
+// import "../../../../node_modules/codemirror/lib/codemirror.css";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";

@@ -18,6 +18,13 @@ const Description = () => {
         successful.
         <h2>Commands:</h2>
         <code>
+          The commands only affect the animations and does not affect the input
+          array. In order to view the animations, please insert the relevant
+          commands into your code that fit the effect. For example, if you are
+          swapping elements, you can use the swap command to show the animation.
+        </code>
+        <p></p>
+        <code>
           Base command: <pre>command(type, fromIndex, toIndex)</pre>
         </code>
         <h3>Supported Commands:</h3>
