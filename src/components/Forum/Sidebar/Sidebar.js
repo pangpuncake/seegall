@@ -24,9 +24,9 @@ const Sidebar = () => {
       >
         <NavigationItem link="/forum/home">Home</NavigationItem>
         <NavigationItem link="/forum/newpost">Create Post</NavigationItem>
-        <NavigationItem link="/forum/tags">Tags</NavigationItem>
+        {/* <NavigationItem link="/forum/tags">Tags</NavigationItem>
         <NavigationItem link="/forum/popular">Popular</NavigationItem>
-        <NavigationItem link="/forum/latest">Latest</NavigationItem>
+        <NavigationItem link="/forum/latest">Latest</NavigationItem> */}
       </ul>
     </div>
   );

@@ -1,5 +1,8 @@
 import React from "react";
 
+const example =
+  'const createFunction = (inputArr) => {\n    for (let i = 0; i < 10; i++) {\n        let temp = inputArr[i];\n        inputArr[i] = inputArr[9 - i];\n        inputArr[9 - i] = temp;\n        command("swap", i, 9 - i);\n        return inputArr;\n};';
+
 const Description = () => {
   return (
     <div style={{ textAlign: "left", paddingBottom: "2%" }}>
@@ -27,6 +30,11 @@ const Description = () => {
           at fromIndex into the array at toIndex.
         </code>
       </section>
+      <h2>Example:</h2>
+      <pre>
+        <code>{example}</code>
+      </pre>
+      <code>This will swap the elements at index i and 9 - i of inputArr</code>
     </div>
   );
 };

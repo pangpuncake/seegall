@@ -130,7 +130,7 @@ class BarChart extends Component {
         <input
           type="input"
           onChange={this.editArrayHandler}
-          placeholder="Create your array!"
+          placeholder="Create array! E.g. 1,2,3"
         />
         <button
           onClick={() =>

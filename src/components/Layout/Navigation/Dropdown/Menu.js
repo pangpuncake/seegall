@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import NavigationItem from "../NavigationItems/NavigationItem/NavigationItem";
+// import NavigationItem from "../NavigationItems/NavigationItem/NavigationItem";
 
 export default function SimpleMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -18,14 +18,14 @@ export default function SimpleMenu() {
   return (
     <div>
       <Button
-        aria-controls='simple-menu'
-        aria-haspopup='true'
+        aria-controls="simple-menu"
+        aria-haspopup="true"
         onClick={handleClick}
       >
         Algorithms
       </Button>
       <Menu
-        id='simple-menu'
+        id="simple-menu"
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}

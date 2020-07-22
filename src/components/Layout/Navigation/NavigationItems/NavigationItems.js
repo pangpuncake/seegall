@@ -5,7 +5,7 @@ import AuthContext from "../../../context/AuthContext/AuthContext";
 import { connect } from "react-redux";
 import * as actions from "../../../../store/actions/index";
 import Dropdown from "../Dropdown/Dropdown";
-import Menu from "../Dropdown/Menu";
+// import Menu from "../Dropdown/Menu";
 
 const NavigationItems = (props) => {
   const authContext = useContext(AuthContext);
