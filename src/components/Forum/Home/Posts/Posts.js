@@ -13,8 +13,8 @@ class Posts extends Component {
   };
 
   componentDidMount() {
-    console.log("Posts props are below!");
-    console.log(this.props);
+    // console.log("Posts props are below!");
+    // console.log(this.props);
     this.props.onFetch();
   }
 
@@ -28,13 +28,13 @@ class Posts extends Component {
   }
 
   postSelectedHandler = (id) => {
-    console.log("postSelectedHandler!");
+    // console.log("postSelectedHandler!");
     // this.props.history.push({pathname: '/forum/home/' + id});
     this.props.history.push("/forum/home/" + id);
   };
 
   showMoreHandler = () => {
-    console.log("clicked");
+    // console.log("clicked");
     if (this.props.posts && this.state.showNumber < this.props.posts.length) {
       this.setState((prevState) => {
         return {

@@ -15,7 +15,7 @@ class CodeMirrorEditor extends Component {
   };
 
   updateCodeHandler = () => {
-    console.log("redux store changing ", this.state.code);
+    // console.log("redux store changing ", this.state.code);
     this.props.onUpdate(this.state.code);
   };
 

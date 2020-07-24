@@ -86,7 +86,7 @@ export default function command(commandObject, datasets) {
       return newDataset;
 
     default:
-      console.log("nothing happened!");
+      // console.log("nothing happened!");
       return [];
   }
 }

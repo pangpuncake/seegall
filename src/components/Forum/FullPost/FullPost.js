@@ -93,7 +93,7 @@ class FullPost extends Component {
   };
 
   deletePostHandler = (id) => {
-    console.log("deletePostHandler called");
+    // console.log("deletePostHandler called");
     this.props.deletePost(id);
     this.setState((prevState) => {
       return {
@@ -104,7 +104,7 @@ class FullPost extends Component {
   };
 
   toggleDeletePopUpHandler = () => {
-    console.log("togglePopUp called!");
+    // console.log("togglePopUp called!");
     this.setState((prevState) => {
       return {
         showDeleteConfirmation: !prevState.showDeleteConfirmation,
@@ -113,8 +113,8 @@ class FullPost extends Component {
   };
 
   componentDidMount() {
-    console.log("full post props below");
-    console.log(this.props);
+    // console.log("full post props below");
+    // console.log(this.props);
     this.loadData();
   }
 
@@ -211,7 +211,7 @@ class FullPost extends Component {
         </div>
       ) : null;
 
-      console.log(this.props.loadedPost);
+      // console.log(this.props.loadedPost);
       post = (
         <div>
           <h2>{this.props.loadedPost.title}</h2>
@@ -226,7 +226,7 @@ class FullPost extends Component {
             {form}
             <Button btnType="Success">Reply</Button>
           </form>
-          <p>{this.state.controls.response.value}</p>
+          {/* <p>{this.state.controls.response.value}</p> */}
         </div>
       );
     }

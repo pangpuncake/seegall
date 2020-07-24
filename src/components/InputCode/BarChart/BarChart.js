@@ -46,7 +46,7 @@ class BarChart extends Component {
   };
 
   editArrayHandler = (event) => {
-    console.log("editArrayHandler");
+    // console.log("editArrayHandler");
     this.setState({
       arrayString: event.target.value,
     });
@@ -61,7 +61,7 @@ class BarChart extends Component {
 
   setArrayHandler = (array) => {
     let newDatasets = [...this.state.datasets];
-    console.log(array);
+    // console.log(array);
     const backgroundColorArray = new Array(array.length).fill(
       colorTypes.NORMAL_COLOR
     );
@@ -87,7 +87,7 @@ class BarChart extends Component {
   };
 
   setSpeedHandler = () => {
-    console.log(this.state.speed);
+    // console.log(this.state.speed);
     this.setState({
       speed: this.state.speed,
     });

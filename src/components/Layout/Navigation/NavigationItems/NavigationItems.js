@@ -14,8 +14,8 @@ const NavigationItems = (props) => {
     props.onLogout();
   };
 
-  console.log("auth props below");
-  console.log(props);
+  // console.log("auth props below");
+  // console.log(props);
 
   let authLogin = !props.loggedIn ? (
     <li

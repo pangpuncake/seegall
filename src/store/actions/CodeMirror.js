@@ -30,7 +30,7 @@ export const updateCodeStart = () => {
 };
 
 export const updateCodeSuccess = (algorithm, code) => {
-  console.log("actions - updateCode");
+  // console.log("actions - updateCode");
   return {
     type: actionTypes.UPDATE_CODE_SUCCESS,
     algorithm: algorithm,
@@ -64,11 +64,11 @@ export const postCode = (code, algorithm, array) => {
     let postBody = {
       code: code + `${algorithm}([${array}]);`,
     };
-    console.log(postBody);
+    // console.log(postBody);
     axios
       .post(`${SERVER}/api/code`, postBody)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (!res.data.commands) {
           dispatch(updateCodeFail("Please check your code again."));
         } else {
@@ -76,7 +76,7 @@ export const postCode = (code, algorithm, array) => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         dispatch(codeFail(err));
       });
   };
@@ -88,7 +88,7 @@ export const getSort = (algorithm) => {
     axios
       .get(`${SERVER}/api/code/sorting/${algorithm}`)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         dispatch(
           updateCodeSuccess(
             algorithm.replace(/^\w/, (chr) => chr.toLowerCase()),

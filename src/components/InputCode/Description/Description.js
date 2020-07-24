@@ -1,7 +1,7 @@
 import React from "react";
 
 const example =
-  'const createFunction = (inputArr) => {\n    for (let i = 0; i < 10; i++) {\n        let temp = inputArr[i];\n        inputArr[i] = inputArr[9 - i];\n        inputArr[9 - i] = temp;\n        command("swap", i, 9 - i);\n        return inputArr;\n};';
+  'const createFunction = (inputArr) => {\n    for (let i = 0; i < 10; i++) {\n        let temp = inputArr[i];\n        inputArr[i] = inputArr[9 - i];\n        inputArr[9 - i] = temp;\n        command("swap", i, 9 - i);\n    };\n    return inputArr;\n};';
 
 const Description = () => {
   return (
@@ -16,6 +16,17 @@ const Description = () => {
         mimic what happens typically in a common sorting algorithm. Once
         finished creating your sort, click on Build, and run the sequence if
         successful.
+        <h3>
+          Step 1: Choose a sort at the sidebar or create your own function.
+        </h3>
+        <h3>
+          Step 2: Create your array e.g. 4,3,2,1 in the input field or randomise
+          one.
+        </h3>
+        <h3>
+          Step 3: Press Build in the sidebar, and either run full sequence or
+          press the next command.
+        </h3>
         <h2>Commands:</h2>
         <code>
           The commands only affect the animations and does not affect the input
@@ -38,10 +49,14 @@ const Description = () => {
         </code>
       </section>
       <h2>Example:</h2>
+      <p>For an array: 10,9,8,7,6,5,4,3,2,1</p>
       <pre>
         <code>{example}</code>
       </pre>
-      <code>This will swap the elements at index i and 9 - i of inputArr</code>
+      <code>
+        This will swap the elements at index i and 9 - i of inputArr. You can
+        guess the result!
+      </code>
     </div>
   );
 };
