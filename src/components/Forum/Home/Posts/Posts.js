@@ -69,7 +69,6 @@ class Posts extends Component {
     }
     return (
       <div style={{ textAlign: "center", marginLeft: "15%", padding: "2%" }}>
-        <p style={{ color: "black" }}>~~~~~~ Searchbar ~~~~~~</p>
         {postsArray}
         <Button
           btnType="Success"
