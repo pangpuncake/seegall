@@ -1,6 +1,6 @@
 export { auth, logout, resetPassword } from "./auth";
 
-export { submitPost, updateCode } from "./post";
+export { submitPost, updateCode, createNewPost } from "./post";
 
 export { fetchPosts } from "./posts";
 

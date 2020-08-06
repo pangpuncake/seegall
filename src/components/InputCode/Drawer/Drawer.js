@@ -24,6 +24,7 @@ import BarChart from "../BarChart/BarChart";
 import HomeIcon from "@material-ui/icons/Home";
 import PopUp from "../../Layout/PopUp/PopUp";
 
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
 
@@ -32,6 +33,7 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    color: "bbb",
   },
   drawer: {
     [theme.breakpoints.up("sm")]: {
@@ -68,10 +70,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#bbb",
   },
 }));
-
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
 
 function ResponsiveDrawer(props) {
   const { window } = props;
@@ -116,14 +114,14 @@ function ResponsiveDrawer(props) {
     <div>
       <div className={classes.toolbar} />
       <List>
-        <ListItem button key="Home">
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <ListItemLink href="/">
+        <NavLink to="/" style={{ color: "inherit", textDecoration: "none" }}>
+          <ListItem button key="Home">
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
             <ListItemText primary="Home" />
-          </ListItemLink>
-        </ListItem>
+          </ListItem>
+        </NavLink>
         <Divider />
         <ListItem
           button
@@ -192,7 +190,7 @@ function ResponsiveDrawer(props) {
             </Typography>
           </Toolbar>
         </AppBar>
-        <nav className={classes.drawer} aria-label="mailbox folders">
+        <nav className={classes.drawer} aria-label="build">
           {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
           <Hidden smUp implementation="css">
             <Drawer

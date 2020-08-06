@@ -27,6 +27,18 @@ export const updateCodeStart = (code) => {
   };
 };
 
+export const createPost = () => {
+  return {
+    type: actionTypes.CREATE_POST,
+  };
+};
+
+export const createNewPost = () => {
+  return (dispatch) => {
+    dispatch(createPost());
+  };
+};
+
 export const submitPost = (email, code, title, value) => {
   // console.log('Code here! ', code);
   return (dispatch) => {

@@ -1,52 +1,64 @@
-import * as actionTypes from '../actions/actionTypes';
-import { updateObject } from '../utility';
+import * as actionTypes from "../actions/actionTypes";
+import { updateObject } from "../utility";
 
 const initialState = {
-    loading: false,
-    error: null,
-    uploaded: false,
-    code: ``
-}
+  loading: false,
+  error: null,
+  uploaded: false,
+  code: ``,
+};
 
 const newPostStart = (state, action) => {
-    return updateObject(state, {
-        error: null,
-        loading: true,
-        uploaded: false
-    })
-}
+  return updateObject(state, {
+    error: null,
+    loading: true,
+    uploaded: false,
+  });
+};
 
 const newPostSuccess = (state, action) => {
-    return updateObject(state, {
-        error: null,
-        loading: false,
-        uploaded: true
-    })
-}
+  return updateObject(state, {
+    error: null,
+    loading: false,
+    uploaded: true,
+  });
+};
 
 const newPostFail = (state, action) => {
-    return updateObject(state, {
-        error: action.error,
-        loading: false,
-        uploaded: false
-    })
-}
+  return updateObject(state, {
+    error: action.error,
+    loading: false,
+    uploaded: false,
+  });
+};
 
 const updateCodeStart = (state, action) => {
-    return updateObject(state, {
-        code: action.code
-    })
-}
+  return updateObject(state, {
+    code: action.code,
+  });
+};
+
+const createPost = (state, action) => {
+  return updateObject(state, {
+    uploaded: false,
+  });
+};
 
 const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        case actionTypes.NEW_POST_START: return newPostStart(state, action);
-        case actionTypes.NEW_POST_SUCCESS: return newPostSuccess(state, action);
-        case actionTypes.NEW_POST_FAIL: return newPostFail(state, action);
-        case actionTypes.UPDATE_CODE: return updateCodeStart(state, action);
-        default:
-            return state;
-    }
-}
+  switch (action.type) {
+    case actionTypes.NEW_POST_START:
+      return newPostStart(state, action);
+    case actionTypes.NEW_POST_SUCCESS:
+      return newPostSuccess(state, action);
+    case actionTypes.NEW_POST_FAIL:
+      return newPostFail(state, action);
+    case actionTypes.UPDATE_CODE:
+      return updateCodeStart(state, action);
+    case actionTypes.CREATE_POST:
+      return createPost(state, action);
+    default:
+      return state;
+  }
+};
 
 export default reducer;

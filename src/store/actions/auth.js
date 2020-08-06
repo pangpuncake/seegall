@@ -72,6 +72,7 @@ export const auth = (email, password, isSignup) => {
       password: password,
       returnSecureToken: true,
     };
+    //This URL is without email verification.
     let url =
       "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC12wxDo517wIl_66rKVCglgn-EVT2VPFE";
     if (!isSignup) {

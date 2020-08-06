@@ -116,7 +116,14 @@ class NewPost extends Component {
     }
 
     if (this.props.uploaded) {
-      newPost = <h3>Your post has been successfully uploaded!</h3>;
+      newPost = (
+        <Fragment>
+          <h3>Your post has been successfully uploaded!</h3>
+          <Button btnType="Success" clicked={this.props.createPost}>
+            Create another post!
+          </Button>
+        </Fragment>
+      );
     }
 
     if (this.props.error) {
@@ -156,6 +163,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onPost: (email, code, title, value) =>
       dispatch(actions.submitPost(email, code, title, value)),
+    createPost: () => dispatch(actions.createNewPost()),
   };
 };
 
